@@ -1,4 +1,5 @@
+@import "../sass/function";
 .content {
-  margin: 2rem;
+  margin: convertFont(165);
   text-align: center;
 }

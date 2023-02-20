@@ -1,9 +1,10 @@
 import classes from "./Root.module.scss";
 import { Outlet } from "react-router-dom";
+import MainNavigation from "../components/MainNavigation";
 const RouterLayout = () => {
   return (
     <>
-      <h1>Nav</h1>
+      <MainNavigation />
       <main className={classes.content}>
         <Outlet></Outlet>
       </main>
