@@ -1,0 +1,35 @@
+@import "./function";
+@import "./var";
+@font-face {
+  font-family: Manrope;
+  src: url(../fonts/Manrope/static/Manrope-Regular.ttf);
+  font-size: 15px;
+}
+
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Manrope, sans-serif;
+}
+
+h1 {
+  font-size: convertFont(56);
+}
+h2 {
+  font-size: convertFont(40);
+}
+h3 {
+  font-size: convertFont(32);
+}
+h4 {
+  font-size: convertFont(28);
+}
+h5 {
+  font-size: convertFont(24);
+}
+h6 {
+  font-size: convertFont(18);
+}
