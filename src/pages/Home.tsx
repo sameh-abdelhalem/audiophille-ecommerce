@@ -1,11 +1,12 @@
+import React from "react";
+import MainNavigation from "../components/MainNavigation";
+import ProductTitle from "../components/ProductTitle";
+import classes from "./Home.module.scss";
 const HomePage = () => {
   return (
-    <div>
-      <h1>Hello</h1>
-      <p>this is a simple paragraph</p>
-      <h2>Hello</h2>
-      <h3>Hello</h3>
-      <h4>Hello</h4>
+    <div className={classes.hero}>
+      <MainNavigation />
+      <ProductTitle />
     </div>
   );
 };

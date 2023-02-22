@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import classes from "./MainNavigation.module.scss";
 import headerLogo from "../assets/shared/desktop/logo.svg";
 import cartIcon from "../assets/shared/desktop/icon-cart.svg";
+import React from "react";
 const MainNavigation = () => {
   return (
     <header className={classes.header}>

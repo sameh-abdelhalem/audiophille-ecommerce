@@ -1,0 +1,13 @@
+@import "../sass/function";
+.productContainer {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.productDesc {
+  text-align: left;
+  width: convertFont(398);
+  h1 {
+    margin: 1rem 0;
+  }
+}

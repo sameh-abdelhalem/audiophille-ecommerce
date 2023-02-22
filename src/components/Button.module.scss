@@ -1,0 +1,12 @@
+@import "../sass/function";
+@import "../sass/var";
+
+.primary {
+  padding: 0.8rem 2rem;
+  font-size: convertFont(13);
+  font-weight: bold;
+  color: white;
+  background-color: $primaryOrange;
+  border: 0;
+  margin: 1rem 0;
+}
