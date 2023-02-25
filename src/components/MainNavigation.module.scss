@@ -4,9 +4,11 @@ header {
   margin: 0;
   display: flex;
   align-items: center;
-  border-bottom: 1px #979797 solid;
+  border-bottom: 1px solid rgba(150, 150, 150, 0.2);
+
   justify-content: space-between;
   color: white;
+  z-index: 550;
 
   .logo {
     display: felx;

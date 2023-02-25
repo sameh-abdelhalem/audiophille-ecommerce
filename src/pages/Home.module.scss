@@ -1,11 +1,44 @@
 @import "../sass/function";
 .hero {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: convertFont(729);
   padding: 0 convertFont(165);
-  background-image: url(../assets/home/desktop/image-hero.jpg);
-  background-position: center;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-color: #141414;
+  background-size: contain;
+}
 
-  background-size: cover;
+.headphones {
+  position: absolute;
+  height: 100%;
+  left: 45%;
+  z-index: 500;
+}
+.productContainer {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.productDesc {
+  text-align: left;
+  width: convertFont(346);
+
+  h1 {
+    margin: 1rem 0;
+    color: #fff;
+  }
+  p {
+    color: rgba(255, 255, 255, 75%);
+    font-size: 15px;
+    margin-bottom: 1rem;
+  }
+}
+
+.newProd {
+  color: rgba(255, 255, 255, 49.64%);
+  font-size: 14px;
+  letter-spacing: 10px;
 }
