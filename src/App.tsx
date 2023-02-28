@@ -6,15 +6,11 @@ import "./sass/_base.scss";
 import React from "react";
 function App() {
   const router = createBrowserRouter([
+    { path: "/", element: <HomePage /> },
     {
       path: "/",
       element: <RouterLayout />,
-      children: [
-        {
-          index: true,
-          element: <HomePage />,
-        },
-      ],
+      children: [],
     },
   ]);
   return <RouterProvider router={router} />;

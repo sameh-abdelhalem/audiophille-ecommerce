@@ -1,0 +1,44 @@
+@import "../../sass/function";
+@import "../../sass/var";
+.products {
+  display: flex;
+  justify-content: center;
+  .product:nth-child(3) {
+    margin-right: 0;
+  }
+  margin: convertFont(120) 0;
+}
+
+.product {
+  background-image: url("../../assets/Figma/hero-section/headphones-bg.png");
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-basis: 100%;
+  text-align: center;
+  margin-right: 2rem;
+  padding-bottom: 2rem;
+  border-radius: 8px;
+  a {
+    margin-top: 0.8rem;
+    text-decoration: none;
+    font-size: convertFont(13);
+    font-weight: bold;
+    color: rgb(0, 0, 0, 50%);
+  }
+  a::after {
+    content: "";
+    border: solid $primaryOrange;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 2.5px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    margin-left: 0.8rem;
+  }
+
+  img {
+    width: 13rem;
+    margin: auto;
+  }
+}

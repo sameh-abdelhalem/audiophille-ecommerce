@@ -1,4 +1,7 @@
 @import "../sass/function";
+.content {
+  margin: 0 convertFont(165);
+}
 .hero {
   position: relative;
   display: flex;
