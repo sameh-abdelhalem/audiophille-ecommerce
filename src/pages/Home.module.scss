@@ -2,6 +2,9 @@
 .content {
   margin: 0 convertFont(165);
 }
+
+// Hero Section
+
 .hero {
   position: relative;
   display: flex;
@@ -44,4 +47,42 @@
   color: rgba(255, 255, 255, 49.64%);
   font-size: 14px;
   letter-spacing: 10px;
+}
+
+// Featured Product Section
+
+.featuredProd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: convertFont(540);
+  background-image: url("../assets/Figma/hero-section/featured_speakerBG.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  .productDesc {
+    margin: auto;
+    width: convertFont(330);
+  }
+  .cropContainer {
+    margin-left: 8rem;
+    overflow: hidden;
+    align-self: flex-end;
+
+    .featuredSpeakers {
+      width: convertFont(360);
+
+      margin-bottom: -1rem;
+    }
+  }
+}
+.prodCatButton {
+  padding: 1rem 2.1rem;
+  font-size: convertFont(13);
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  border: 0;
+  margin: 1rem 0;
 }

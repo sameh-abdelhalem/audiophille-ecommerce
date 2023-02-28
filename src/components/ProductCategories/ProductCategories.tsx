@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./ProductCategories.module.scss";
 import headphoneCategory from "../../assets/Figma/hero-section/headphone-category.png";
-import speakersCategory from "../../assets/Figma/hero-section/speakers-category.png";
+import speakersCategory from "../../assets/Figma/hero-section/speakers-icon.png";
 import earphonesCategory from "../../assets/Figma/hero-section/earphones-category.png";
 
 const ProductCategories = () => {
@@ -16,7 +16,7 @@ const ProductCategories = () => {
         </Link>
       </div>
       <div className={classes.product}>
-        <img src={speakersCategory} alt="" />
+        <img src={speakersCategory} className={classes.speakers} alt="" />
         <h6>Speakers</h6>
         <Link to={"/headphones"}>Shop</Link>
       </div>
