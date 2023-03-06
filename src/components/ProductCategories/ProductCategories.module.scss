@@ -11,6 +11,9 @@
 
 .product {
   background-image: url("../../assets/Figma/hero-section/headphones-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -18,7 +21,6 @@
   text-align: center;
   margin-right: 2rem;
   padding-bottom: 2rem;
-  border-radius: 8px;
 
   a {
     margin-top: 0.8rem;
@@ -27,6 +29,10 @@
     font-weight: bold;
     color: rgb(0, 0, 0, 50%);
   }
+  a:hover {
+    color: $primaryOrange;
+  }
+
   a::after {
     content: "";
     border: solid $primaryOrange;

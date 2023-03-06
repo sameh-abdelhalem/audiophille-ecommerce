@@ -27,6 +27,8 @@ const HomePage = () => {
       </div>
       <div className={classes.content}>
         <ProductCategories />
+
+        {/* featured speakers / first ad */}
         <div className={classes.featuredProd}>
           <div className={classes.cropContainer}>
             <img
@@ -41,6 +43,14 @@ const HomePage = () => {
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
+            <Button style={classes.prodCatButton}>SEE PRODUCT</Button>
+          </div>
+        </div>
+        {/* Second ad Prod 2 */}
+        <div className={classes.secondAd}>
+          <div className={classes.productDesc}>
+            <h4>ZX7 SPEAKER</h4>
+
             <Button style={classes.prodCatButton}>SEE PRODUCT</Button>
           </div>
         </div>

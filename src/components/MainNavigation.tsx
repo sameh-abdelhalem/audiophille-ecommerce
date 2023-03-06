@@ -11,16 +11,44 @@ const MainNavigation = () => {
       <nav>
         <ul>
           <li>
-            <NavLink to={"/"}>HOME</NavLink>
+            <NavLink
+              to={"/"}
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              HOME
+            </NavLink>
           </li>
           <li>
-            <NavLink to={"/headphones"}>HEADPHONES</NavLink>
+            <NavLink
+              to={"/headphones"}
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              HEADPHONES
+            </NavLink>
           </li>
           <li>
-            <NavLink to={"/speakers"}>SPEAKERS</NavLink>
+            <NavLink
+              to={"/speakers"}
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              SPEAKERS
+            </NavLink>
           </li>
           <li>
-            <NavLink to={"/earphones"}>EARPHONES</NavLink>
+            <NavLink
+              to={"/earphones"}
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              EARPHONES
+            </NavLink>
           </li>
         </ul>
       </nav>

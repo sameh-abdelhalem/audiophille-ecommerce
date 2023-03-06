@@ -1,4 +1,5 @@
 @import "../sass/function";
+@import "../sass/var";
 .content {
   margin: 0 convertFont(165);
 }
@@ -15,6 +16,10 @@
   background-repeat: no-repeat;
   background-color: #141414;
   background-size: contain;
+  button:hover {
+    background-color: $secondaryOrange;
+    cursor: pointer;
+  }
 }
 
 .headphones {
@@ -31,6 +36,7 @@
 .productDesc {
   text-align: left;
   width: convertFont(346);
+  z-index: 1000;
 
   h1 {
     margin: 1rem 0;
@@ -52,6 +58,11 @@
 // Featured Product Section
 
 .featuredProd {
+  button:hover {
+    background-color: $darkGray;
+    cursor: pointer;
+  }
+  border-radius: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,4 +96,32 @@
   background-color: black;
   border: 0;
   margin: 1rem 0;
+}
+
+// Second Ad Section
+.secondAd {
+  display: flex;
+  height: convertFont(330);
+  width: 100%;
+  background-image: url(../assets/Figma/hero-section/secondAd.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: convertFont(60) 0;
+  border-radius: 8 px;
+  align-items: center;
+
+  .productDesc {
+    margin-left: convertFont(105);
+    button {
+      margin-top: 2rem;
+      background-color: transparent;
+      border: 1px solid black;
+      color: black;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: black;
+      color: white;
+    }
+  }
 }
