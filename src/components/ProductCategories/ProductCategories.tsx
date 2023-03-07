@@ -9,21 +9,25 @@ const ProductCategories = () => {
   return (
     <div className={classes.products}>
       <div className={classes.product}>
-        <img src={headphoneCategory} />
-        <h6>Headphones</h6>
         <Link to={"/headphones"}>
+          <img src={headphoneCategory} />
+          <h6>Headphones</h6>
           <span className={classes.prodLink}>Shop</span>
         </Link>
       </div>
       <div className={classes.product}>
-        <img src={speakersCategory} className={classes.speakers} alt="" />
-        <h6>Speakers</h6>
-        <Link to={"/headphones"}>Shop</Link>
+        <Link to={"/headphones"}>
+          <img src={speakersCategory} className={classes.speakers} alt="" />
+          <h6>Speakers</h6>
+          <span className={classes.prodLink}>Shop</span>
+        </Link>
       </div>
       <div className={classes.product}>
-        <img src={earphonesCategory} alt="" />
-        <h6>Earphones</h6>
-        <Link to={"/headphones"}>Shop</Link>
+        <Link to={"/headphones"}>
+          <img src={earphonesCategory} alt="" />
+          <h6>Earphones</h6>
+          <span className={classes.prodLink}>Shop</span>
+        </Link>
       </div>
     </div>
   );

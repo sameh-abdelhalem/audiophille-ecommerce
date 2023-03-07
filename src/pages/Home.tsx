@@ -3,6 +3,7 @@ import MainNavigation from "../components/MainNavigation";
 import ProductTitle from "../components/ProductTitle";
 import classes from "./Home.module.scss";
 import headPhones from "../assets/Figma/hero-section/hero-headphones.png";
+import thirdAd from "../assets/Figma/hero-section/thirdAd.png";
 import Button from "../components/Button/Button";
 import ProductCategories from "../components/ProductCategories/ProductCategories";
 import featuredSpeakers from "../assets/home/desktop/image-speaker-zx9.png";
@@ -50,7 +51,14 @@ const HomePage = () => {
         <div className={classes.secondAd}>
           <div className={classes.productDesc}>
             <h4>ZX7 SPEAKER</h4>
-
+            <Button style={classes.prodCatButton}>SEE PRODUCT</Button>
+          </div>
+        </div>
+        {/* Third Ad Prod 3 */}
+        <div className={classes.thirdAd}>
+          <img src={thirdAd} alt="" />
+          <div className={classes.productDesc}>
+            <h4>YX1 EARPHONES</h4>
             <Button style={classes.prodCatButton}>SEE PRODUCT</Button>
           </div>
         </div>

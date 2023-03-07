@@ -125,3 +125,18 @@
     }
   }
 }
+
+// third Ad
+
+.thirdAd {
+  display: flex;
+  align-items: center;
+  align-items: stretch;
+  img {
+    width: 100%;
+    display: block;
+  }
+  .productDesc {
+    background-color: #f1f1f1;
+  }
+}
