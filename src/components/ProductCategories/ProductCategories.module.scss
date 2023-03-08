@@ -37,6 +37,8 @@
   }
   a:hover {
     .prodLink {
+      transition: 0.2s;
+
       color: $primaryOrange;
     }
   }

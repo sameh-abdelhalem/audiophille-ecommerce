@@ -56,12 +56,10 @@
 }
 
 // Featured Product Section
-
+h4 {
+  margin-bottom: 2rem;
+}
 .featuredProd {
-  button:hover {
-    background-color: $darkGray;
-    cursor: pointer;
-  }
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
@@ -76,6 +74,7 @@
     margin: auto;
     width: convertFont(330);
   }
+
   .cropContainer {
     margin-left: 8rem;
     overflow: hidden;
@@ -88,15 +87,6 @@
     }
   }
 }
-.prodCatButton {
-  padding: 1rem 2.1rem;
-  font-size: convertFont(13);
-  font-weight: bold;
-  color: white;
-  background-color: black;
-  border: 0;
-  margin: 1rem 0;
-}
 
 // Second Ad Section
 .secondAd {
@@ -107,22 +97,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   margin: convertFont(60) 0;
-  border-radius: 8 px;
+  border-radius: 8px;
   align-items: center;
 
   .productDesc {
-    margin-left: convertFont(105);
-    button {
-      margin-top: 2rem;
-      background-color: transparent;
-      border: 1px solid black;
-      color: black;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: black;
-      color: white;
-    }
+    margin-left: 8.55%;
   }
 }
 

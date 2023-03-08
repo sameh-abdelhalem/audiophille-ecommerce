@@ -5,7 +5,19 @@ const Button: React.FC<{
   children: React.ReactNode;
 }> = (props) => {
   return (
-    <button className={props.style || classes.primary}>{props.children}</button>
+    <button
+      className={
+        props.style === "transparent"
+          ? classes.transparent
+          : props.style === "prodCatButton"
+          ? classes.prodCatButton
+          : props.style === "primary"
+          ? classes.primary
+          : ""
+      }
+    >
+      {props.children}
+    </button>
   );
 };
 

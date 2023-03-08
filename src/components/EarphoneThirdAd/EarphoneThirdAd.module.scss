@@ -1,0 +1,22 @@
+.thirdAd {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  img {
+    border-radius: 8px;
+  }
+}
+.productDesc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #f1f1f1;
+  height: 320px;
+  width: 100%;
+  margin-left: 2rem;
+  border-radius: 8px;
+}
+.titleButton {
+  margin-left: 17.5%;
+}
