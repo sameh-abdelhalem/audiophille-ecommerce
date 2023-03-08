@@ -1,0 +1,22 @@
+@import "../../sass/var";
+.personAdContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24vh 0;
+  h2 {
+    margin-bottom: 2rem;
+    .primaryWord {
+      color: $primaryOrange;
+    }
+  }
+  img {
+    width: 540px;
+  }
+  .adDesc {
+    width: 40%;
+  }
+  p {
+    color: rgb(0, 0, 0, 50%);
+  }
+}

@@ -7,6 +7,7 @@ import Button from "../components/Button/Button";
 import ProductCategories from "../components/ProductCategories/ProductCategories";
 import featuredSpeakers from "../assets/home/desktop/image-speaker-zx9.png";
 import EarphoneThirdAd from "../components/EarphoneThirdAd/EarphoneThirdAd";
+import PersonCardAd from "../components/PersonCardAd/PersonCardAd";
 const HomePage = () => {
   return (
     <>
@@ -56,6 +57,7 @@ const HomePage = () => {
         </div>
         {/* Third Ad Prod 3 */}
         <EarphoneThirdAd />
+        <PersonCardAd />
       </div>
     </>
   );
