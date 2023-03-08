@@ -1,0 +1,58 @@
+@import "../../sass/function";
+@import "../../sass/var.scss";
+.footerContainer {
+  color: white;
+  background-color: #101010;
+  padding: 10vh convertFont(165) 5vh convertFont(165);
+  display: flex;
+  justify-content: space-between;
+  .footerDesc {
+    width: 48.8%;
+  }
+  .footerDescParagraph {
+    margin-bottom: 2.5rem;
+  }
+  .headerLogo {
+    margin-bottom: 2rem;
+  }
+  p {
+    color: rgb(255, 255, 255, 50%);
+  }
+  ul :nth-child(4) {
+    margin-right: 0;
+  }
+  ul :nth-child(4) {
+    margin-right: 0;
+  }
+  nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      font-size: convertFont(13);
+      margin: 0 convertFont(17);
+      a {
+        text-decoration: none;
+        color: white;
+        transition: 0.2s;
+      }
+      a:hover {
+        color: $primaryOrange;
+      }
+    }
+  }
+
+  .active {
+    color: $primaryOrange;
+  }
+}
+
+.socials {
+  text-align: right;
+  margin: 25% 0;
+  .socialIcon {
+    margin-left: 1rem;
+  }
+}

@@ -10,9 +10,7 @@ function App() {
     {
       path: "/",
       element: <RouterLayout />,
-      children: [
-        
-      ],
+      children: [],
     },
   ]);
   return <RouterProvider router={router} />;
