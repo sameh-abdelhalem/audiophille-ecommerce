@@ -1,6 +1,7 @@
 @import "../../sass/function";
 @import "../../sass/var.scss";
 .footerContainer {
+  position: relative;
   color: white;
   background-color: #101010;
   padding: 10vh convertFont(165) 5vh convertFont(165);
@@ -55,4 +56,13 @@
   .socialIcon {
     margin-left: 1rem;
   }
+}
+
+.footerContainer::before {
+  content: "";
+  position: absolute;
+  width: 101px;
+  height: 4px;
+  top: 0;
+  background: #d87d4a;
 }
