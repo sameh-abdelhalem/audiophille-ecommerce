@@ -5,6 +5,12 @@
 .secNavContainer {
   padding: 0 convertFont(165);
   background-color: black;
+
+  .headerTitle {
+    color: white;
+    text-align: center;
+    padding: convertFont(100) 0;
+  }
 }
 .secNavheader {
   padding: convertFont(32) 0;

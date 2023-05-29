@@ -5,6 +5,7 @@ import RouterLayout from "./pages/Root";
 import "./sass/_base.scss";
 import React from "react";
 import HeadphonesPage from "./pages/Headphones";
+import CategoryPage from "./pages/Headphones";
 function App() {
   const router = createBrowserRouter([
     { path: "/", element: <HomePage /> },
@@ -13,8 +14,8 @@ function App() {
       element: <RouterLayout />,
       children: [
         {
-          element: <HeadphonesPage />,
           path: "/headphones",
+          element: <CategoryPage />,
         },
       ],
     },

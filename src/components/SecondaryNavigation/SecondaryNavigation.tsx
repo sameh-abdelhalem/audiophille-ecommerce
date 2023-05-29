@@ -2,9 +2,13 @@ import React from "react";
 import classes from "./SecondaryNavigation.module.scss";
 import headerLogo from "../../assets/shared/desktop/logo.svg";
 import cartIcon from "../../assets/shared/desktop/icon-cart.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { log } from "console";
 
 const SecondaryNavigation = () => {
+  const currentPath = useLocation();
+
+  console.log(currentPath);
   return (
     <div className={classes.secNavContainer}>
       <header className={classes.secNavheader}>
@@ -57,6 +61,9 @@ const SecondaryNavigation = () => {
 
         <img src={cartIcon} alt="" />
       </header>
+      <div className={classes.headerTitle}>
+        <h2>{currentPath.pathname.slice(1)}</h2>
+      </div>
     </div>
   );
 };
