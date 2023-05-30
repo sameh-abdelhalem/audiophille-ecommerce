@@ -2,10 +2,11 @@ import React from "react";
 import classes from "./ProductAd.module.scss";
 import prodCatImg from "../../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import { log } from "console";
+import Button from "../Button/Button";
 
 const DUMMYCATPRODS: any = [
   {
-    prodId: "13",
+    prodId: 13,
     prodTitle: "XX99 Mark II Headphones",
     prodDesc:
       "The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.",
@@ -13,7 +14,7 @@ const DUMMYCATPRODS: any = [
     isNew: true,
   },
   {
-    prodId: "13",
+    prodId: 12,
     prodTitle: "XX99 Mark II Headphones",
     prodDesc:
       "The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.",
@@ -28,11 +29,12 @@ const ProductAd = () => {
       <div className={classes.prodAdContainer}>
         {(isInverted = !isInverted)}
 
-        <div>
+        <div className={classes.prodDescContainer}>
           {prod.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
           <div className={classes.adDesc}>
             <h2>{prod.prodTitle}</h2>
             <p>{prod.prodDesc}</p>
+            <Button style="primary">SEE PRODUCT</Button>
           </div>
         </div>
         {<img src={prod.prodImg} alt="" />}
@@ -47,6 +49,7 @@ const ProductAd = () => {
           <div className={classes.adDesc}>
             <h2>{prod.prodTitle}</h2>
             <p>{prod.prodDesc}</p>
+            <Button style="primary">SEE PRODUCT</Button>
           </div>
         </div>
       </div>

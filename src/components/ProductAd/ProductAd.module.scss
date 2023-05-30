@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   text-align: left;
+  gap: 11.3%;
 
   margin: 24vh 0;
   h2 {
@@ -15,11 +16,12 @@
   img {
     width: 540px;
   }
-  .adDesc {
-    width: 80%;
-  }
+
   p {
     color: rgb(0, 0, 0, 50%);
+  }
+  button {
+    margin-top: 2rem;
   }
 }
 
