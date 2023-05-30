@@ -17,6 +17,14 @@ function App() {
           path: "/headphones",
           element: <CategoryPage />,
         },
+        {
+          path: "/speakers",
+          element: <CategoryPage />,
+        },
+        {
+          path: "/earphones",
+          element: <CategoryPage />,
+        },
       ],
     },
   ]);

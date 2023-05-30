@@ -1,29 +1,56 @@
 import React from "react";
 import classes from "./ProductAd.module.scss";
-const ProductAd: React.FC<{
-  isNew: boolean;
-}> = (props) => {
-  return (
-    <div className={classes.prodAdContainer}>
-      <div>
-        {props.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
-        <div className={classes.adDesc}>
-          <h2>
-            Bringing you the <span className={classes.primaryWord}>best</span>{" "}
-            audio gear
-          </h2>
-          <p>
-            Located at the heart of New York City, Audiophile is the premier
-            store for high end headphones, earphones, speakers, and audio
-            accessories. We have a large showroom and luxury demonstration rooms
-            available for you to browse and experience a wide range of our
-            products. Stop by our store to meet some of the fantastic people who
-            make Audiophile the best place to buy your portable audio equipment.
-          </p>
+import prodCatImg from "../../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
+import { log } from "console";
+
+const DUMMYCATPRODS: any = [
+  {
+    prodId: "13",
+    prodTitle: "XX99 Mark II Headphones",
+    prodDesc:
+      "The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.",
+    prodImg: prodCatImg,
+    isNew: true,
+  },
+  {
+    prodId: "13",
+    prodTitle: "XX99 Mark II Headphones",
+    prodDesc:
+      "The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.",
+    prodImg: prodCatImg,
+    isNew: false,
+  },
+];
+const ProductAd = () => {
+  let isInverted = false;
+  return DUMMYCATPRODS.map((prod: any) =>
+    isInverted ? (
+      <div className={classes.prodAdContainer}>
+        {(isInverted = !isInverted)}
+
+        <div>
+          {prod.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
+          <div className={classes.adDesc}>
+            <h2>{prod.prodTitle}</h2>
+            <p>{prod.prodDesc}</p>
+          </div>
+        </div>
+        {<img src={prod.prodImg} alt="" />}
+      </div>
+    ) : (
+      <div className={classes.prodAdContainer}>
+        {<img src={prod.prodImg} alt="" />}
+        {(isInverted = !isInverted)}
+
+        <div>
+          {prod.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
+          <div className={classes.adDesc}>
+            <h2>{prod.prodTitle}</h2>
+            <p>{prod.prodDesc}</p>
+          </div>
         </div>
       </div>
-      {/* <img src={ProdImg} alt="" /> */}
-    </div>
+    )
   );
 };
 

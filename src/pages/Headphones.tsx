@@ -6,7 +6,7 @@ import ProductCategories from "../components/ProductCategories/ProductCategories
 const CategoryPage = () => {
   return (
     <div>
-      <ProductAd isNew={true} />
+      <ProductAd />
       <ProductCategories />
       <PersonCardAd />
     </div>
