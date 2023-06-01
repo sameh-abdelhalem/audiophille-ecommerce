@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import classes from "./ProductCategories.module.scss";
 import headphoneCategory from "../../assets/Figma/hero-section/headphone-category.png";
 import speakersCategory from "../../assets/Figma/hero-section/speakers-icon.png";
 import earphonesCategory from "../../assets/Figma/hero-section/earphones-category.png";
 
 const ProductCategories = () => {
+  const params = useParams();
   return (
     <div className={classes.products}>
       <div className={classes.product}>

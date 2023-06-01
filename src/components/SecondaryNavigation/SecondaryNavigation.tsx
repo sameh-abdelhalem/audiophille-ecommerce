@@ -60,15 +60,11 @@ const SecondaryNavigation = () => {
 
         <img src={cartIcon} alt="" />
       </header>
-      <div className={classes.headerTitle}>
-        <h2>
-          {currentPath.pathname.slice(
-            1,
-            currentPath.pathname.slice(1).indexOf("/")
-          )}
-          S
-        </h2>
-      </div>
+      {!currentPath.pathname.slice(1).includes("/") && (
+        <div className={classes.headerTitle}>
+          <h2>{currentPath.pathname.slice(1)}</h2>
+        </div>
+      )}
     </div>
   );
 };
