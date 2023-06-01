@@ -8,7 +8,6 @@ import { log } from "console";
 const SecondaryNavigation = () => {
   const currentPath = useLocation();
 
-  console.log(currentPath);
   return (
     <div className={classes.secNavContainer}>
       <header className={classes.secNavheader}>
@@ -62,7 +61,13 @@ const SecondaryNavigation = () => {
         <img src={cartIcon} alt="" />
       </header>
       <div className={classes.headerTitle}>
-        <h2>{currentPath.pathname.slice(1)}</h2>
+        <h2>
+          {currentPath.pathname.slice(
+            1,
+            currentPath.pathname.slice(1).indexOf("/")
+          )}
+          S
+        </h2>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import classes from "./ProductAd.module.scss";
 import prodCatImg from "../../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import { log } from "console";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 const DUMMYCATPRODS: any = [
   {
@@ -34,7 +35,9 @@ const ProductAd = () => {
           <div className={classes.adDesc}>
             <h2>{prod.prodTitle}</h2>
             <p>{prod.prodDesc}</p>
-            <Button style="primary">SEE PRODUCT</Button>
+            <Button style="primary">
+              <Link to={"/productDetails"}>SEE PRODUCT</Link>
+            </Button>
           </div>
         </div>
         {<img src={prod.prodImg} alt="" />}
@@ -49,7 +52,9 @@ const ProductAd = () => {
           <div className={classes.adDesc}>
             <h2>{prod.prodTitle}</h2>
             <p>{prod.prodDesc}</p>
-            <Button style="primary">SEE PRODUCT</Button>
+            <Button style="primary">
+              <Link to={"/productDetails"}>SEE PRODUCT</Link>
+            </Button>
           </div>
         </div>
       </div>

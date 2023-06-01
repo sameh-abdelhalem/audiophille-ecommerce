@@ -16,14 +16,14 @@ const ProductCategories = () => {
         </Link>
       </div>
       <div className={classes.product}>
-        <Link to={"/headphones"}>
+        <Link to={"/speakers"}>
           <img src={speakersCategory} className={classes.speakers} alt="" />
           <h6>Speakers</h6>
           <span className={classes.prodLink}>Shop</span>
         </Link>
       </div>
       <div className={classes.product}>
-        <Link to={"/headphones"}>
+        <Link to={"/earphones"}>
           <img src={earphonesCategory} alt="" />
           <h6>Earphones</h6>
           <span className={classes.prodLink}>Shop</span>

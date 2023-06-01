@@ -5,6 +5,7 @@ import RouterLayout from "./pages/Root";
 import "./sass/_base.scss";
 import React from "react";
 import CategoryPage from "./pages/Category";
+import ProductDetailsPage from "./pages/ProductDetails";
 function App() {
   const router = createBrowserRouter([
     { path: "/", element: <HomePage /> },
@@ -17,12 +18,27 @@ function App() {
           element: <CategoryPage />,
         },
         {
+          path: "headphones/:prodId",
+
+          element: <ProductDetailsPage />,
+        },
+        {
           path: "/speakers",
           element: <CategoryPage />,
         },
         {
+          path: "speakers/:prodId",
+
+          element: <ProductDetailsPage />,
+        },
+        {
           path: "/earphones",
           element: <CategoryPage />,
+        },
+        {
+          path: "earphones/:prodId",
+
+          element: <ProductDetailsPage />,
         },
       ],
     },
