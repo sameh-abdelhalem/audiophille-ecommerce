@@ -11,6 +11,10 @@
   margin: 1rem 0;
   transition: 0.2s;
 }
+.primary:hover {
+  background-color: $secondaryOrange;
+  cursor: pointer;
+}
 .transparent {
   background-color: transparent;
   border: 1px solid black;

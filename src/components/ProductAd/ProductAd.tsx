@@ -35,9 +35,10 @@ const ProductAd = () => {
           <div className={classes.adDesc}>
             <h2>{prod.prodTitle}</h2>
             <p>{prod.prodDesc}</p>
-            <Button style="primary">
-              <Link to={"/productDetails"}>SEE PRODUCT</Link>
-            </Button>
+
+            <Link to={"prod"}>
+              <Button style="primary">SEE PRODUCT</Button>
+            </Link>
           </div>
         </div>
         {<img src={prod.prodImg} alt="" />}
@@ -52,9 +53,9 @@ const ProductAd = () => {
           <div className={classes.adDesc}>
             <h2>{prod.prodTitle}</h2>
             <p>{prod.prodDesc}</p>
-            <Button style="primary">
-              <Link to={"/productDetails"}>SEE PRODUCT</Link>
-            </Button>
+            <Link to={"prod"}>
+              <Button style="primary">SEE PRODUCT</Button>
+            </Link>
           </div>
         </div>
       </div>

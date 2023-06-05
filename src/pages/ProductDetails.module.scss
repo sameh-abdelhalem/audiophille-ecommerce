@@ -1,0 +1,54 @@
+@import "../sass/var";
+
+.prodAdContainer {
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  gap: 11.3%;
+
+  margin: 24vh 0;
+  h2 {
+    margin-bottom: 2rem;
+    .primaryWord {
+      color: $primaryOrange;
+    }
+  }
+  img {
+    width: 540px;
+  }
+
+  p {
+    color: rgb(0, 0, 0, 50%);
+  }
+}
+
+.newProd {
+  font-size: 14px;
+  letter-spacing: 10px;
+  text-align: left;
+  color: $primaryOrange !important;
+}
+
+.addToCart {
+  display: flex;
+  .quantity {
+    width: 120px;
+    background-color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 1rem 1rem 0;
+    padding: 1rem;
+  }
+}
+
+.amount {
+  cursor: pointer;
+  color: gray;
+}
