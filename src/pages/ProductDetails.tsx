@@ -5,6 +5,10 @@ import { Link, useParams } from "react-router-dom";
 import classes from "./ProductDetails.module.scss";
 import prodCatImg from "../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import Button from "../components/Button/Button";
+import imgGal1 from "../assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg";
+import imgGal2 from "../assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg";
+import imgGal3 from "../assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg";
+import { url } from "inspector";
 const DUMMYPRODUCT = {
   prodId: 1,
   prodTitle: "XX99 Mark II Headphones",
@@ -43,6 +47,7 @@ const DUMMYPRODUCT = {
     },
   ],
   prodImg: prodCatImg,
+  prodImages: { mainImage: imgGal3, firstImage: imgGal1, secImage: imgGal2 },
 };
 
 const ProductDetailsPage = () => {
@@ -69,6 +74,34 @@ const ProductDetailsPage = () => {
               <Button style="primary">ADD TO CART</Button>
             </div>
           </div>
+        </div>
+      </div>
+      <div className={classes.featuresContainer}>
+        <div className={classes.features}>
+          <h3>Features</h3>
+          <p>{DUMMYPRODUCT.prodFeatures}</p>
+        </div>
+        <div className={classes.boxContent}>
+          <h3>in the box</h3>
+          <ul>
+            {DUMMYPRODUCT.prodBox.map((item) => {
+              return (
+                <li key={item.item}>
+                  <span className={classes.quantity}>{item.quantity}x</span>{" "}
+                  {item.item}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+      <div className={classes.prodImagesContainer}>
+        <div className={classes.secImages}>
+          <img src={DUMMYPRODUCT.prodImages.firstImage} alt="" />
+          <img src={DUMMYPRODUCT.prodImages.secImage} alt="" />
+        </div>
+        <div className={classes.mainImage}>
+          <img src={DUMMYPRODUCT.prodImages.mainImage} alt="" />
         </div>
       </div>
 
