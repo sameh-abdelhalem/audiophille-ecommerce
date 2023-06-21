@@ -1,5 +1,12 @@
 @import "../sass/var";
-
+.prodMainContainer {
+  text-align: left;
+  margin-top: 5rem;
+}
+.returnLink {
+  text-decoration: none;
+  color: rgb(0, 0, 0, 50%);
+}
 .prodAdContainer {
   a {
     text-decoration: none;
@@ -12,7 +19,7 @@
   text-align: left;
   gap: 11.3%;
 
-  margin: 11rem 0;
+  margin: 3rem 0 11rem 0;
   h2 {
     margin-bottom: 2rem;
     .primaryWord {
@@ -99,7 +106,7 @@
     width: 80%;
     img {
       height: 100%;
-      width: auto;
+      width: 100%;
     }
   }
   .secImages {
@@ -107,7 +114,7 @@
     img {
       border-radius: 8px;
       width: auto;
-      height: auto;
+      height: 100%;
     }
 
     display: flex;

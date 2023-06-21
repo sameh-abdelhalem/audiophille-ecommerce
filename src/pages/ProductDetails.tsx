@@ -54,8 +54,10 @@ const ProductDetailsPage = () => {
   const params = useParams();
 
   return (
-    <div>
-      <Link to={"/"}>Go Back</Link>
+    <div className={classes.prodMainContainer}>
+      <Link to={"/"} className={classes.returnLink}>
+        Go Back
+      </Link>
       <div className={classes.prodAdContainer}>
         {<img src={DUMMYPRODUCT.prodImg} alt="" />}
 
