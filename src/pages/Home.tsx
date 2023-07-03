@@ -24,7 +24,9 @@ const HomePage = () => {
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.
             </p>
-            <Button style="primary">SEE PRODUCT</Button>
+            <Button onClick={null} style="primary">
+              SEE PRODUCT
+            </Button>
           </div>
         </div>
       </div>
@@ -46,14 +48,18 @@ const HomePage = () => {
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
-            <Button style={"prodCatButton"}>SEE PRODUCT</Button>
+            <Button onClick={null} style={"prodCatButton"}>
+              SEE PRODUCT
+            </Button>
           </div>
         </div>
         {/* Second ad Prod 2 */}
         <div className={classes.secondAd}>
           <div className={classes.productDesc}>
             <h4>ZX7 SPEAKER</h4>
-            <Button style={"transparent"}>SEE PRODUCT</Button>
+            <Button onClick={null} style={"transparent"}>
+              SEE PRODUCT
+            </Button>
           </div>
         </div>
         {/* Third Ad Prod 3 */}

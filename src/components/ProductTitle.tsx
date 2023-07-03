@@ -8,7 +8,9 @@ const ProductTitle = () => {
         <p>NEW PRODUCT</p>
         <h1>Product description</h1>
         <p>Product description Product description Product description</p>
-        <Button style="asdf">SEE PRODUCT</Button>
+        <Button onClick={null} style="asdf">
+          SEE PRODUCT
+        </Button>
       </div>
     </div>
   );

@@ -37,7 +37,9 @@ const ProductAd = () => {
             <p>{prod.prodDesc}</p>
 
             <Link to={"prod"}>
-              <Button style="primary">SEE PRODUCT</Button>
+              <Button onClick={null} style="primary">
+                SEE PRODUCT
+              </Button>
             </Link>
           </div>
         </div>
@@ -54,7 +56,9 @@ const ProductAd = () => {
             <h2>{prod.prodTitle}</h2>
             <p>{prod.prodDesc}</p>
             <Link to={"prod"}>
-              <Button style="primary">SEE PRODUCT</Button>
+              <Button onClick={null} style="primary">
+                SEE PRODUCT
+              </Button>
             </Link>
           </div>
         </div>

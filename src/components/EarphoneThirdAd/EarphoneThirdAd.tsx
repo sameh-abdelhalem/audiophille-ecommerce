@@ -10,7 +10,9 @@ const EarphoneThirdAd = () => {
       <div className={classes.productDesc}>
         <div className={classes.titleButton}>
           <h4>YX1 EARPHONES</h4>
-          <Button style={"transparent"}>SEE PRODUCT</Button>
+          <Button style={"transparent"} onClick={null}>
+            SEE PRODUCT
+          </Button>
         </div>
       </div>
     </div>

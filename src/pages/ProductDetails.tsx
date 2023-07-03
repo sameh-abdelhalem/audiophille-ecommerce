@@ -9,6 +9,7 @@ import imgGal1 from "../assets/product-xx99-mark-two-headphones/desktop/image-ga
 import imgGal2 from "../assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg";
 import imgGal3 from "../assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg";
 import { url } from "inspector";
+import RelatedProducts from "../components/RelatedProducts/RelatedProducts";
 const DUMMYPRODUCT = {
   prodId: 1,
   prodTitle: "XX99 Mark II Headphones",
@@ -73,7 +74,9 @@ const ProductDetailsPage = () => {
                 <div>1</div>
                 <div className={classes.amount}>+</div>
               </div>
-              <Button style="primary">ADD TO CART</Button>
+              <Button onClick={null} style="primary">
+                ADD TO CART
+              </Button>
             </div>
           </div>
         </div>
@@ -106,7 +109,7 @@ const ProductDetailsPage = () => {
           <img src={DUMMYPRODUCT.prodImages.mainImage} alt="" />
         </div>
       </div>
-
+      <RelatedProducts />
       <ProductCategories />
       <PersonCardAd />
     </div>
