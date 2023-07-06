@@ -1,12 +1,16 @@
 @import "../../sass/function";
 @import "../../sass/var";
+
+h4 {
+  text-align: center;
+}
 .products {
   display: flex;
   justify-content: center;
   .product:nth-child(3) {
     margin-right: 0;
   }
-  margin: convertFont(120) 0;
+  margin: 3rem 0 convertFont(120) 0;
 }
 
 .product {

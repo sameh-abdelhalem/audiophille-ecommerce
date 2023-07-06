@@ -7,6 +7,11 @@
   text-decoration: none;
   color: rgb(0, 0, 0, 50%);
 }
+.returnLink:hover {
+  text-decoration: none;
+  color: $primaryOrange;
+  transition: 0.2s;
+}
 .prodAdContainer {
   a {
     text-decoration: none;
@@ -58,6 +63,10 @@
 .amount {
   cursor: pointer;
   color: gray;
+}
+.amount:hover {
+  color: $primaryOrange;
+  transition: 0.2s;
 }
 
 .featuresContainer {

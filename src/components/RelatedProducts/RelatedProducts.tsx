@@ -17,20 +17,22 @@ const RelatedProducts = () => {
     navigate("../");
   };
   return (
-    <div className={classes.products}>
-      {DUMMYRELATEDPRODUCTS.map((prod) => {
-        return (
-          <div className={classes.product}>
-            <img src={prod.prodImage} />
-            <h5>{prod.prodTitle}</h5>
+    <>
+      <h4>you may also like</h4>
+      <div className={classes.products}>
+        {DUMMYRELATEDPRODUCTS.map((prod) => {
+          return (
+            <div className={classes.product}>
+              <img src={prod.prodImage} />
+              <h5>{prod.prodTitle}</h5>
 
-            <Button style="primary" onClick={navigateHandler}>
-              SEE PRODDUCT
-            </Button>
-          </div>
-        );
-      })}
-      {/* <div className={classes.product}>
+              <Button style="primary" onClick={navigateHandler}>
+                SEE PRODDUCT
+              </Button>
+            </div>
+          );
+        })}
+        {/* <div className={classes.product}>
         <Link to={"/headphones"}>
           <img src={markIHeadphone} />
           <h6>Headphones</h6>
@@ -51,7 +53,8 @@ const RelatedProducts = () => {
           <span className={classes.prodLink}>Shop</span>
         </Link>
       </div> */}
-    </div>
+      </div>
+    </>
   );
 };
 
