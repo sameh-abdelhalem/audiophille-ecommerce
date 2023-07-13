@@ -1,0 +1,76 @@
+@import "../../sass/function";
+@import "../../sass/var";
+
+.remove {
+  color: $textGray;
+
+  text-decoration: underline;
+  text-decoration-color: lightgray;
+}
+.cartContainer {
+  color: black;
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+  overflow: auto;
+  right: 0;
+  top: 2rem;
+
+  width: 33.96%;
+  button {
+    width: 100%;
+  }
+  img {
+    width: 4.5rem;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+  }
+
+  border-radius: 0.6rem;
+  padding: 2rem;
+}
+.cartHeader {
+  display: flex;
+
+  justify-content: space-between;
+}
+.prodContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.headphonesPrice {
+  display: flex;
+  align-items: center;
+  .prodTitle {
+    font-weight: bold;
+    font-size: convertFont(15);
+  }
+  .prodPrice {
+    color: $textGray;
+    font-weight: bold;
+  }
+}
+.addToCart {
+  display: flex;
+  align-items: center;
+  margin: 3rem 0;
+  .quantity {
+    width: 6rem;
+    height: 2rem;
+    background-color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0.5rem;
+  }
+}
+.totalPrice {
+  display: flex;
+  justify-content: space-between;
+}
+.amount {
+  color: $textGray;
+  font-size: bold;
+}

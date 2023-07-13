@@ -12,24 +12,6 @@ import Footer from "../components/Footer/Footer";
 const HomePage = () => {
   return (
     <>
-      <div className={classes.hero}>
-        <img src={headPhones} className={classes.headphones} />
-        <MainNavigation />
-
-        <div className={classes.productContainer}>
-          <div className={classes.productDesc}>
-            <p className={classes.newProd}>NEW PRODUCT</p>
-            <h1>XX99 Mark II Headphones</h1>
-            <p>
-              Experience natural, lifelike audio and exceptional build quality
-              made for the passionate music enthusiast.
-            </p>
-            <Button onClick={null} style="primary">
-              SEE PRODUCT
-            </Button>
-          </div>
-        </div>
-      </div>
       <div className={classes.content}>
         <ProductCategories />
 
@@ -66,7 +48,6 @@ const HomePage = () => {
         <EarphoneThirdAd />
         <PersonCardAd />
       </div>
-      <Footer />
     </>
   );
 };

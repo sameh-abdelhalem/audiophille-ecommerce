@@ -8,11 +8,11 @@ import CategoryPage from "./pages/Category";
 import ProductDetailsPage from "./pages/ProductDetails";
 function App() {
   const router = createBrowserRouter([
-    { path: "/", element: <HomePage /> },
     {
       path: "/",
       element: <RouterLayout />,
       children: [
+        { index: true, element: <HomePage /> },
         {
           path: "/headphones",
           element: <CategoryPage />,

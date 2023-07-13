@@ -2,6 +2,9 @@
 
 @import "../sass/var";
 header {
+  .active {
+    color: $primaryOrange;
+  }
   padding: convertFont(32) 0;
   margin: 0;
   display: flex;
@@ -13,7 +16,7 @@ header {
   z-index: 550;
 
   .logo {
-    display: felx;
+    display: flex;
   }
   nav ul {
     display: flex;
@@ -34,7 +37,4 @@ header {
       }
     }
   }
-}
-.active {
-  color: $primaryOrange;
 }
