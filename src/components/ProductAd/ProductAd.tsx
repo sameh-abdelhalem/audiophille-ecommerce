@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./ProductAd.module.scss";
 import prodCatImg from "../../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import { log } from "console";
-import Button from "../Button/Button";
+import Button from "../UI/Button/Button";
 import { Link } from "react-router-dom";
 
 const DUMMYCATPRODS: any = [

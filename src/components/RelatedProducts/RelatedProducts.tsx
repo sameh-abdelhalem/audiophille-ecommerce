@@ -3,7 +3,7 @@ import classes from "./RelatedProducts.module.scss";
 import markIHeadphone from "../../assets/product-xx99-mark-one-headphones/desktop/image-product.jpg";
 import speakersImage from "../../assets/product-zx9-speaker/desktop/image-product.jpg";
 import whiteHeadphoneImage from "../../assets/product-xx59-headphones/desktop/image-product.jpg";
-import Button from "../Button/Button";
+import Button from "../UI/Button/Button";
 const DUMMYRELATEDPRODUCTS = [
   { prodImage: markIHeadphone, prodTitle: "XX99 MARK I", prodID: 1 },
   { prodImage: whiteHeadphoneImage, prodTitle: "XX59", prodID: 2 },

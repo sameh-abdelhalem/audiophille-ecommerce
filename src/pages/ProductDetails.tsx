@@ -4,7 +4,7 @@ import PersonCardAd from "../components/PersonCardAd/PersonCardAd";
 import { Link, useParams } from "react-router-dom";
 import classes from "./ProductDetails.module.scss";
 import prodCatImg from "../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
-import Button from "../components/Button/Button";
+import Button from "../components/UI/Button/Button";
 import imgGal1 from "../assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg";
 import imgGal2 from "../assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg";
 import imgGal3 from "../assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg";

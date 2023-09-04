@@ -3,7 +3,7 @@ import MainNavigation from "../components/MainNavigation";
 import ProductTitle from "../components/ProductTitle";
 import classes from "./Home.module.scss";
 import headPhones from "../assets/Figma/hero-section/hero-headphones.png";
-import Button from "../components/Button/Button";
+import Button from "../components/UI/Button/Button";
 import ProductCategories from "../components/ProductCategories/ProductCategories";
 import featuredSpeakers from "../assets/home/desktop/image-speaker-zx9.png";
 import EarphoneThirdAd from "../components/EarphoneThirdAd/EarphoneThirdAd";

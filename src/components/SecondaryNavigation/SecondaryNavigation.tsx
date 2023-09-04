@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import classes from "./SecondaryNavigation.module.scss";
+import "./SecondaryNavigation.module.scss";
 import headerLogo from "../../assets/shared/desktop/logo.svg";
 import cartIcon from "../../assets/shared/desktop/icon-cart.svg";
 import { NavLink, useLocation } from "react-router-dom";
 import { log } from "console";
-import Button from "../Button/Button";
+import Button from "../UI/Button/Button";
 import headPhones from "../../assets/Figma/hero-section/hero-headphones.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
@@ -20,6 +21,9 @@ const SecondaryNavigation = () => {
   };
   return currentPath.pathname.length === 1 ? (
     <>
+      {toggleCart && (
+        <div className={classes.backdrop} onClick={showCartHandler}></div>
+      )}
       <div className={classes.hero}>
         <header className={classes.secNavheader}>
           <img src={headerLogo} alt="" />
@@ -93,7 +97,9 @@ const SecondaryNavigation = () => {
     </>
   ) : (
     <>
-      {/* <Cart /> */}
+      {toggleCart && (
+        <div className={classes.backdrop} onClick={showCartHandler}></div>
+      )}
       <div className={classes.secNavContainer}>
         <header className={classes.secNavheader}>
           <img src={headerLogo} alt="" />
@@ -147,9 +153,11 @@ const SecondaryNavigation = () => {
             onClick={showCartHandler}
           />
         </header>
+
         {!currentPath.pathname.slice(1).includes("/") && (
           <div className={classes.headerTitle}>
             <h2>{currentPath.pathname.slice(1)}</h2>
+            {toggleCart && <Cart />}
           </div>
         )}
       </div>

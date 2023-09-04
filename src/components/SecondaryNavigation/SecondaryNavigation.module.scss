@@ -54,6 +54,7 @@
     color: white;
     text-align: center;
     padding: convertFont(100) 0;
+    position: relative;
   }
 }
 .secNavheader {
@@ -100,4 +101,14 @@
 .cartIcon :hover {
   color: $primaryOrange;
   transition: 0.2s;
+}
+
+.backdrop {
+  position: absolute;
+
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button/Button";
+import Button from "../UI/Button/Button";
 import classes from "./EarphoneThirdAd.module.scss";
 import thirdAd from "../../assets/home/desktop/image-earphones-yx1.jpg";
 
