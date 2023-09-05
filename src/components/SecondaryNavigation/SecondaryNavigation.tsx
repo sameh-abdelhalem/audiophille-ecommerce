@@ -22,7 +22,9 @@ const SecondaryNavigation = () => {
   return currentPath.pathname.length === 1 ? (
     <>
       {toggleCart && (
-        <div className={classes.backdrop} onClick={showCartHandler}></div>
+        <div className={classes.relativeDiv}>
+          <div className={classes.backdrop} onClick={showCartHandler}></div>
+        </div>
       )}
       <div className={classes.hero}>
         <header className={classes.secNavheader}>
@@ -77,6 +79,7 @@ const SecondaryNavigation = () => {
             onClick={showCartHandler}
           />
         </header>
+
         <img src={headPhones} className={classes.headphones} />
 
         <div className={classes.productContainer}>
@@ -154,11 +157,13 @@ const SecondaryNavigation = () => {
           />
         </header>
 
-        {!currentPath.pathname.slice(1).includes("/") && (
+        {!currentPath.pathname.slice(1).includes("/") ? (
           <div className={classes.headerTitle}>
             <h2>{currentPath.pathname.slice(1)}</h2>
             {toggleCart && <Cart />}
           </div>
+        ) : (
+          <div className={classes.relativeDiv}>{toggleCart && <Cart />}</div>
         )}
       </div>
     </>
