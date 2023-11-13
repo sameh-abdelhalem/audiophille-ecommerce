@@ -83,7 +83,7 @@ const SecondaryNavigation = () => {
         <img src={headPhones} className={classes.headphones} />
 
         <div className={classes.productContainer}>
-          {toggleCart && <Cart />}
+          {toggleCart && <Cart hideCart={showCartHandler} />}
           <div className={classes.productDesc}>
             <p className={classes.newProd}>NEW PRODUCT</p>
             <h1>XX99 Mark II Headphones</h1>
@@ -157,10 +157,11 @@ const SecondaryNavigation = () => {
           />
         </header>
 
-        {!currentPath.pathname.slice(1).includes("/") ? (
+        {!currentPath.pathname.slice(1).includes("/") &&
+        !currentPath.pathname.includes("checkout") ? (
           <div className={classes.headerTitle}>
             <h2>{currentPath.pathname.slice(1)}</h2>
-            {toggleCart && <Cart />}
+            {toggleCart && <Cart hideCart={showCartHandler} />}
           </div>
         ) : (
           <div className={classes.relativeDiv}>{toggleCart && <Cart />}</div>

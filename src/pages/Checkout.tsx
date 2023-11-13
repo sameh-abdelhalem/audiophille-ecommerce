@@ -1,7 +1,11 @@
+import CheckoutForm from "../components/Cart/CheckoutForm";
+import CheckoutSummary from "../components/Cart/CheckoutSummary";
+
 const CheckoutPage = () => {
   return (
     <div>
-      <h6>Checkout</h6>
+      <CheckoutForm />
+      <CheckoutSummary />
     </div>
   );
 };

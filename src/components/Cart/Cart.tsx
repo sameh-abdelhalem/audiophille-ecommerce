@@ -3,7 +3,14 @@ import headphones from "../../assets/cart/image-xx99-mark-one-headphones.jpg";
 import Button from "../UI/Button/Button";
 import { useState } from "react";
 import { log } from "console";
-const Cart = () => {
+import { useNavigate } from "react-router-dom";
+const Cart = (props: any) => {
+  const navigate = useNavigate();
+
+  const navigateToCheckoutHandler = () => {
+    navigate("/checkout");
+    props.hideCart();
+  };
   return (
     <div className={classes.backdrop}>
       <div className={classes.cartContainer}>
@@ -41,7 +48,7 @@ const Cart = () => {
               <p className={classes.amount}>TOTAL</p>
               <h6>$ 5,396</h6>
             </div>
-            <Button style="primary" onClick={null}>
+            <Button style="primary" onClick={navigateToCheckoutHandler}>
               CHECKOUT
             </Button>
           </div>
