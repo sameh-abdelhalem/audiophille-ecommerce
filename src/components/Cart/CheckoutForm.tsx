@@ -1,22 +1,24 @@
 import Countries from "./Countries";
-
+import classes from "./CheckoutForm.module.scss";
 const CheckoutForm = () => {
   return (
-    <div>
+    <div className={classes.formContainer}>
       <h3>CHECKOUT</h3>
 
       <form action="">
-        <div>
+        <div className={classes.labelsContainer}>
           <p>BILLING DETAILS</p>
-          <label>
-            Name
-            <input placeholder="Alexei Ward" type="text" name="name" />
-          </label>
-          <label>
-            Email Address
-            <input placeholder="alexei@mail.com" type="email" name="email" />
-          </label>
-          <label>
+          <div className={classes.adjInputs}>
+            <label>
+              Name
+              <input placeholder="Alexei Ward" type="text" name="name" />
+            </label>
+            <label>
+              Email Address
+              <input placeholder="alexei@mail.com" type="email" name="email" />
+            </label>
+          </div>
+          <label className={classes.halfWidth}>
             Phone Number
             <input placeholder="+1 202-555-0136" type="number" name="phone" />
           </label>
@@ -31,11 +33,17 @@ const CheckoutForm = () => {
               name="address"
             />
           </label>
-          <label>
-            ZIP Code
-            <input placeholder="10001" type="number" name="zip" />
-          </label>
-          <label>
+          <div className={classes.adjInputs}>
+            <label>
+              ZIP Code
+              <input placeholder="10001" type="number" name="zip" />
+            </label>
+            <label>
+              City
+              <input placeholder="New York" type="text" name="city" />
+            </label>
+          </div>
+          <label className={classes.halfWidth}>
             Country
             <Countries />
           </label>

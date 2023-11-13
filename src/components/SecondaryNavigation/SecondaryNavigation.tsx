@@ -164,7 +164,9 @@ const SecondaryNavigation = () => {
             {toggleCart && <Cart hideCart={showCartHandler} />}
           </div>
         ) : (
-          <div className={classes.relativeDiv}>{toggleCart && <Cart />}</div>
+          <div className={classes.relativeDiv}>
+            {toggleCart && <Cart hideCart={showCartHandler} />}
+          </div>
         )}
       </div>
     </>
