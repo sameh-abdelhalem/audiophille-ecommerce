@@ -6,6 +6,7 @@ import "./sass/_base.scss";
 import React from "react";
 import CategoryPage from "./pages/Category";
 import ProductDetailsPage from "./pages/ProductDetails";
+import CheckoutPage from "./pages/Checkout";
 function App() {
   const router = createBrowserRouter([
     {
@@ -39,6 +40,10 @@ function App() {
           path: "earphones/:prodId",
 
           element: <ProductDetailsPage />,
+        },
+        {
+          path: "checkout",
+          element: <CheckoutPage />,
         },
       ],
     },

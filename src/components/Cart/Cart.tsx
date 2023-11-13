@@ -2,6 +2,7 @@ import classes from "./Cart.module.scss";
 import headphones from "../../assets/cart/image-xx99-mark-one-headphones.jpg";
 import Button from "../UI/Button/Button";
 import { useState } from "react";
+import { log } from "console";
 const Cart = () => {
   return (
     <div className={classes.backdrop}>
@@ -9,7 +10,14 @@ const Cart = () => {
         <div className={classes.cartContent}>
           <div className={classes.cartHeader}>
             <h6>CART (3)</h6>
-            <p className={classes.remove}>Remove all</p>
+            <p
+              className={classes.remove}
+              onClick={() => {
+                console.log("all items were removed !!");
+              }}
+            >
+              Remove all
+            </p>
           </div>
           <div className={classes.prodContainer}>
             <div className={classes.headphonesPrice}>

@@ -2,10 +2,15 @@
 @import "../../sass/var";
 
 .remove {
+  cursor: pointer;
   color: $textGray;
 
   text-decoration: underline;
   text-decoration-color: lightgray;
+}
+
+.remove:hover {
+  color: $primaryOrange;
 }
 .cartContainer {
   text-align: left;
@@ -72,8 +77,12 @@
   justify-content: space-between;
 }
 .amount {
+  cursor: pointer;
   color: $textGray;
   font-size: bold;
+}
+.amount:hover {
+  color: $primaryOrange;
 }
 
 // .backdrop {
