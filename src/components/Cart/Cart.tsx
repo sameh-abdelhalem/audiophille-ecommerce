@@ -4,6 +4,7 @@ import Button from "../UI/Button/Button";
 import { useState } from "react";
 import { log } from "console";
 import { useNavigate } from "react-router-dom";
+import CartProd from "./CartProd";
 const Cart = (props: any) => {
   const navigate = useNavigate();
 
@@ -27,13 +28,11 @@ const Cart = (props: any) => {
             </p>
           </div>
           <div className={classes.prodContainer}>
-            <div className={classes.headphonesPrice}>
-              <img src={headphones} alt="" />
-              <div>
-                <p className={classes.prodTitle}>XX99 MK II</p>
-                <p className={classes.prodPrice}>$ 2,999</p>
-              </div>
-            </div>
+            <CartProd
+              prodImage={headphones}
+              prodPrice={2.999}
+              prodTitle="XX99 MK II"
+            />
 
             <div className={classes.addToCart}>
               <div className={classes.quantity}>

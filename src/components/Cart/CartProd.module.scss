@@ -1,0 +1,15 @@
+@import "../../sass/function";
+@import "../../sass/var";
+
+.headphonesPrice {
+  display: flex;
+  align-items: center;
+  .prodTitle {
+    font-weight: bold;
+    font-size: convertFont(15);
+  }
+  .prodPrice {
+    color: $textGray;
+    font-weight: bold;
+  }
+}
