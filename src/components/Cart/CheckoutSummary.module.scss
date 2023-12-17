@@ -1,8 +1,58 @@
+@import "../../sass/var";
+@import "../../sass/function";
 .container {
+  h6 {
+    margin-bottom: 2rem;
+  }
+  h5 {
+    font-size: convertFont(15);
+    color: $textGray;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 0.5rem;
+  }
   border-radius: 0.5rem;
   padding: 3rem;
   width: 33%;
   background-color: white;
   margin-left: 2rem;
   text-align: left;
+  .prodQuantityContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .prodQuantity {
+      color: $textGray;
+      font-size: convertFont(15);
+      font-weight: 700;
+      line-height: 25px;
+      letter-spacing: 0px;
+    }
+  }
+}
+
+.totalContainer {
+  margin-top: 2rem;
+  .totalRow {
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      font-family: Manrope;
+      font-size: convertFont(18);
+      font-weight: 700;
+    }
+  }
+}
+
+.grandTotal {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  p {
+    font-family: Manrope;
+    font-size: convertFont(18);
+    font-weight: 700;
+    color: $primaryOrange;
+  }
 }

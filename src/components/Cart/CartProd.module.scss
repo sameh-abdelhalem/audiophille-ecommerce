@@ -2,6 +2,11 @@
 @import "../../sass/var";
 
 .headphonesPrice {
+  img {
+    width: 4.5rem;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+  }
   display: flex;
   align-items: center;
   .prodTitle {
