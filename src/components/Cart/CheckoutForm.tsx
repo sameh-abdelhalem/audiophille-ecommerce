@@ -15,7 +15,12 @@ const CheckoutForm = () => {
             </label>
             <label>
               Email Address
-              <input placeholder="alexei@mail.com" type="email" name="email" />
+              <input
+                placeholder="alexei@mail.com"
+                type="email"
+                name="email"
+                className={classes.noMarginRight}
+              />
             </label>
           </div>
           <label className={classes.halfWidth}>
@@ -28,6 +33,7 @@ const CheckoutForm = () => {
           <label>
             Address
             <input
+              className={classes.noMarginRight}
               placeholder="1137 Williams Avenue"
               type="text"
               name="address"
@@ -40,7 +46,12 @@ const CheckoutForm = () => {
             </label>
             <label>
               City
-              <input placeholder="New York" type="text" name="city" />
+              <input
+                placeholder="New York"
+                type="text"
+                name="city"
+                className={classes.noMarginRight}
+              />
             </label>
           </div>
           <label className={classes.halfWidth}>
@@ -50,25 +61,40 @@ const CheckoutForm = () => {
         </div>
         <div>
           <p>Payment Details</p>
-          <div>
-            Payment Method
+          <div className={classes.pmtRadio}>
+            <h6>Payment Method</h6>
+
+            <div className={classes.radioContainer}>
+              <label className={classes.radioLabels}>
+                <input type="radio" name="method" value="e-Money" />
+                e-Money
+              </label>
+              <label className={classes.radioLabels}>
+                <input type="radio" name="method" value="Cash on Delivery" />
+                Cash on Delivery
+              </label>
+            </div>
+          </div>
+          <div className={classes.radioLabelsDiv}>
             <label>
-              e-Money
-              <input type="radio" name="method" value="e-Money" />
+              e-Money Number
+              <input
+                placeholder="238521993"
+                type="number"
+                name="enum"
+                className={classes.noMarginRight}
+              />
             </label>
             <label>
-              Cash on Delivery
-              <input type="radio" name="method" value="Cash on Delivery" />
+              e-Money PIN
+              <input
+                placeholder="6891"
+                type="number"
+                name="epin"
+                className={classes.noMarginRight}
+              />
             </label>
           </div>
-          <label>
-            e-Money Number
-            <input placeholder="238521993" type="number" name="enum" />
-          </label>
-          <label>
-            e-Money PIN
-            <input placeholder="6891" type="number" name="epin" />
-          </label>
         </div>
       </form>
     </div>
