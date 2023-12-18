@@ -1,7 +1,15 @@
 import CartProd from "./CartProd";
 import classes from "./CheckoutSummary.module.scss";
 import headphones from "../../assets/cart/image-xx99-mark-one-headphones.jpg";
+import Button from "../UI/Button/Button";
+import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import OrderConfirmation from "./OrderConfiramtion";
 const CheckoutSummary = () => {
+  const [toggleConfirmation, setToggleConfirmation] = useState(false);
+  const showConfirmationHandler = () => {
+    setToggleConfirmation((prevState) => !prevState);
+  };
   return (
     <div className={classes.container}>
       <h6>SUMMARY</h6>
@@ -33,6 +41,20 @@ const CheckoutSummary = () => {
         <h5>GRAND TOTAL</h5>
         <p>$ 5,446</p>
       </div>
+      <div className={classes.extendBtn}>
+        <Button style="primary" onClick={showConfirmationHandler}>
+          CONTINUE & PAY
+        </Button>
+      </div>
+      {toggleConfirmation && (
+        <>
+          <div
+            className={classes.backdrop}
+            onClick={showConfirmationHandler}
+          ></div>
+          <OrderConfirmation />
+        </>
+      )}
     </div>
   );
 };
