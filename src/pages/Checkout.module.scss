@@ -1,5 +1,24 @@
+@import "../sass/function";
+@import "../sass/var";
+
 .mainContainer {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  margin-top: 2rem;
+  padding-bottom: 5rem;
+}
+
+.backBtn {
+  .btnText {
+    font-size: convertFont(15);
+    color: rgb(0, 0, 0, 50%);
+    text-align: left;
+    cursor: pointer;
+  }
+  width: fit-content;
+  padding-top: 4rem;
+}
+.btnText:hover {
+  color: $primaryOrange;
 }
