@@ -48,6 +48,9 @@
   .active {
     color: $primaryOrange;
   }
+  .tabletFooterDescParagraph {
+    display: none;
+  }
 }
 
 .socials {
@@ -65,4 +68,46 @@
   height: 4px;
   top: 0;
   background: #d87d4a;
+}
+.tabletSocialsContainer {
+  display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  .footerDesc {
+    p {
+      display: none;
+    }
+  }
+  .footerContainer {
+    padding: 8vh 2.5rem 5vh 2.5rem;
+
+    flex-direction: column;
+    ul :nth-child(1) {
+      margin-left: 0;
+    }
+  }
+  .socials {
+    display: none;
+  }
+  .tabletSocialsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      margin: 0;
+    }
+  }
+  .tabletSocials {
+    text-align: right;
+
+    .socialIcon {
+      margin-left: 1rem;
+    }
+  }
+  .tabletFooterDescParagraph {
+    display: block !important;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
 }

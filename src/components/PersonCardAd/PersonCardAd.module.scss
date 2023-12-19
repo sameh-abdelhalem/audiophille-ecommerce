@@ -13,12 +13,36 @@
     }
   }
   img {
-    width: 540px;
+    width: 50%;
   }
   .adDesc {
     width: 40%;
   }
   p {
     color: rgb(0, 0, 0, 50%);
+  }
+}
+.personImgTablet {
+  display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  .personAdContainer {
+    margin: 10vh 0;
+    flex-direction: column-reverse;
+    img {
+      width: 100%;
+    }
+    text-align: center;
+    .adDesc {
+      width: 70%;
+      margin-top: 3.5rem;
+    }
+  }
+  .personImgDesktop {
+    display: none;
+  }
+  .personImgTablet {
+    display: block;
   }
 }

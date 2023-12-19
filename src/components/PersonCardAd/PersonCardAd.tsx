@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./PersonCardAd.module.scss";
 import personImg from "../../assets/Figma/hero-section/personAd.png";
+import personImgTablet from "../../assets/Figma/hero-section/personAd_tablet.png";
 const PersonCardAd = () => {
   return (
     <div className={classes.personAdContainer}>
@@ -18,7 +19,8 @@ const PersonCardAd = () => {
           best place to buy your portable audio equipment.
         </p>
       </div>
-      <img src={personImg} alt="" />
+      <img className={classes.personImgDesktop} src={personImg} alt="" />
+      <img className={classes.personImgTablet} src={personImgTablet} alt="" />
     </div>
   );
 };

@@ -55,7 +55,12 @@
   }
 
   img {
-    width: 13rem;
+    width: 61%;
     margin: auto;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .products {
+    margin: 4rem 0;
   }
 }

@@ -7,6 +7,7 @@ import React from "react";
 import CategoryPage from "./pages/Category";
 import ProductDetailsPage from "./pages/ProductDetails";
 import CheckoutPage from "./pages/Checkout";
+import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const router = createBrowserRouter([
     {

@@ -68,6 +68,21 @@ const Footer = () => {
           <img src={twitter} className={classes.socialIcon} alt="" />
           <img src={instagram} className={classes.socialIcon} alt="" />
         </div>
+        <p className={classes.tabletFooterDescParagraph}>
+          Audiophile is an all in one stop to fulfill your audio needs. We're a
+          small team of music lovers and sound specialists who are devoted to
+          helping you get the most out of personal audio. Come and visit our
+          demo facility - we’re open 7 days a week.
+        </p>
+        <div className={classes.tabletSocialsContainer}>
+          <p>Copyright 2021. All Rights Reserved</p>
+
+          <div className={classes.tabletSocials}>
+            <img src={facebook} className={classes.socialIcon} alt="" />
+            <img src={twitter} className={classes.socialIcon} alt="" />
+            <img src={instagram} className={classes.socialIcon} alt="" />
+          </div>
+        </div>
         {/* Socail Icons */}
       </div>
     </div>

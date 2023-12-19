@@ -3,9 +3,6 @@
 
 // Hero Section
 
-
-
-
 .newProd {
   color: rgba(255, 255, 255, 49.64%);
   font-size: 14px;
@@ -29,16 +26,25 @@ h4 {
 
   .productDesc {
     margin: auto;
-    width: convertFont(330);
+    width: 32.5%;
+    text-align: left;
+    color: #f1f1f1;
+    h1 {
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
   }
 
   .cropContainer {
-    margin-left: 8rem;
+    margin-left: 12%;
     overflow: hidden;
     align-self: flex-end;
+    width: 38%;
 
     .featuredSpeakers {
-      width: convertFont(360);
+      width: 95%;
 
       margin-bottom: -1rem;
     }
@@ -74,5 +80,51 @@ h4 {
   }
   .productDesc {
     background-color: #f1f1f1;
+  }
+}
+
+// responsive
+
+@media only screen and (max-width: 1024px) {
+  .featuredProd {
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 70vh;
+    background-image: url("../assets/Figma/hero-section/featured_speakerBG_tablet.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .productDesc {
+      margin: auto;
+      width: 32.5%;
+      text-align: center;
+      color: #f1f1f1;
+      h1 {
+        margin-bottom: 1rem;
+      }
+      p {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .cropContainer {
+      margin: auto;
+      overflow: auto;
+      align-self: auto;
+      width: auto;
+
+      .featuredSpeakers {
+        width: 11.5rem;
+
+        margin-bottom: -1rem;
+      }
+    }
+  }
+  .secondAd {
+    background-image: url(../assets/Figma/hero-section/secondAd_tablet.png);
+    margin: 2rem 0;
   }
 }

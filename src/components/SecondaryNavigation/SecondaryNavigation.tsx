@@ -10,6 +10,7 @@ import headPhones from "../../assets/Figma/hero-section/hero-headphones.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import Cart from "../Cart/Cart";
+import Dropdown from "react-bootstrap/Dropdown";
 
 const SecondaryNavigation = () => {
   const [transitionState, setTransitionState] = useState(false);
@@ -28,8 +29,26 @@ const SecondaryNavigation = () => {
       )}
       <div className={classes.hero}>
         <header className={classes.secNavheader}>
-          <img src={headerLogo} alt="" />
-          <nav>
+          <div className={classes.ddLogoContainer}>
+            <Dropdown className={classes.navDropdown}>
+              <Dropdown.Toggle variant="none" id="dropdown-basic">
+                <FontAwesomeIcon
+                  icon={icon({ name: "bars" })}
+                  className={classes.cartIcon}
+                />
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">HOME</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">HEADPHONES</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">SPEAKERS</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">EARPHONES</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            <img src={headerLogo} alt="" />
+          </div>
+
+          <nav className={classes.desktopNav}>
             <ul>
               <li>
                 <NavLink

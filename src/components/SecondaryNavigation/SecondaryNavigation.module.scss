@@ -1,6 +1,9 @@
 @import "../../sass/function";
 
 @import "../../sass/var";
+Dropdown {
+  display: none !important;
+}
 .hero {
   position: relative;
   display: flex;
@@ -24,6 +27,7 @@
   height: 100%;
   left: 45%;
   z-index: 500;
+  width: 52.5%;
 }
 .productContainer {
   display: flex;
@@ -74,6 +78,10 @@
   .logo {
     display: felx;
   }
+
+  .navDropdown {
+    display: none;
+  }
   nav ul {
     display: flex;
     list-style-type: none;
@@ -115,4 +123,84 @@
 
   z-index: 1100;
   background: rgba(0, 0, 0, 0.5);
+}
+
+// responsive
+
+@media only screen and (max-width: 1024px) {
+  .hero {
+    height: convertFont(729);
+    padding: 0 2.5rem;
+  }
+  .navDropdown {
+    display: block;
+  }
+  .headphones {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: auto;
+    opacity: 0.5;
+    height: 100%;
+  }
+  .productDesc {
+    text-align: center;
+    width: convertFont(346);
+    z-index: 1000;
+
+    h1 {
+      margin: 1rem 0;
+      color: #fff;
+    }
+    p {
+      color: rgba(255, 255, 255, 75%);
+      font-size: 15px;
+      margin-bottom: 1rem;
+    }
+  }
+  .productContainer {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .desktopNav {
+    display: none;
+  }
+  .navDropdown {
+    display: block !important;
+    p {
+      color: white !important;
+    }
+    path {
+      color: white;
+    }
+    button :nth-child(2) {
+      display: none !important;
+    }
+    ::after {
+      display: none !important;
+    }
+    div {
+      width: 50vw !important;
+      margin-top: 1rem;
+      background-color: $primaryOrange !important;
+      a {
+        color: white !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.514);
+      }
+    }
+  }
+  .ddLogoContainer {
+    display: flex;
+    align-items: center;
+    img {
+      height: 100%;
+      margin-left: 2rem;
+    }
+  }
 }
