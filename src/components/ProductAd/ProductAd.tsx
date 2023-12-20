@@ -27,30 +27,61 @@ const ProductAd = () => {
   let isInverted = false;
   return DUMMYCATPRODS.map((prod: any) =>
     isInverted ? (
-      <div className={classes.prodAdContainer}>
-        {(isInverted = !isInverted)}
+      <>
+        <div className={classes.prodAdContainerTablet}>
+          {
+            <div className={classes.prodImageContainer}>
+              <img src={prod.prodImg} alt="" />
+            </div>
+          }
+          {(isInverted = !isInverted)}
 
-        <div className={classes.prodDescContainer}>
-          {prod.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
-          <div className={classes.adDesc}>
-            <h2>{prod.prodTitle}</h2>
-            <p>{prod.prodDesc}</p>
-
-            <Link to={"prod"}>
-              <Button onClick={null} style="primary">
-                SEE PRODUCT
-              </Button>
-            </Link>
+          <div className={classes.prodDescBtnContainer}>
+            {prod.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
+            <div className={classes.adDesc}>
+              <h2>{prod.prodTitle}</h2>
+              <p>{prod.prodDesc}</p>
+              <Link to={"prod"}>
+                <Button onClick={null} style="primary">
+                  SEE PRODUCT
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
-        {<img src={prod.prodImg} alt="" />}
-      </div>
+        <div className={classes.prodAdContainerDesktop}>
+          {(isInverted = !isInverted)}
+
+          <div className={classes.prodDescContainer}>
+            {prod.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
+            <div className={classes.adDesc}>
+              <h2>{prod.prodTitle}</h2>
+              <p>{prod.prodDesc}</p>
+
+              <Link to={"prod"}>
+                <Button onClick={null} style="primary">
+                  SEE PRODUCT
+                </Button>
+              </Link>
+            </div>
+          </div>
+          {
+            <div className={classes.prodImageContainer}>
+              <img src={prod.prodImg} alt="" />
+            </div>
+          }
+        </div>
+      </>
     ) : (
       <div className={classes.prodAdContainer}>
-        {<img src={prod.prodImg} alt="" />}
+        {
+          <div className={classes.prodImageContainer}>
+            <img src={prod.prodImg} alt="" />
+          </div>
+        }
         {(isInverted = !isInverted)}
 
-        <div>
+        <div className={classes.prodDescBtnContainer}>
           {prod.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
           <div className={classes.adDesc}>
             <h2>{prod.prodTitle}</h2>

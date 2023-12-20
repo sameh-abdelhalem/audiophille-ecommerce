@@ -3,7 +3,7 @@ import classes from "./SecondaryNavigation.module.scss";
 import "./SecondaryNavigation.module.scss";
 import headerLogo from "../../assets/shared/desktop/logo.svg";
 import cartIcon from "../../assets/shared/desktop/icon-cart.svg";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { log } from "console";
 import Button from "../UI/Button/Button";
 import headPhones from "../../assets/Figma/hero-section/hero-headphones.png";
@@ -17,6 +17,8 @@ const SecondaryNavigation = () => {
   const [toggleCart, setToggleCart] = useState(false);
 
   const currentPath = useLocation();
+  const navigate = useNavigate();
+
   const showCartHandler = () => {
     setToggleCart((prevState) => !prevState);
   };
@@ -39,10 +41,34 @@ const SecondaryNavigation = () => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">HOME</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">HEADPHONES</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">SPEAKERS</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">EARPHONES</Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                >
+                  HOME
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    navigate("/headphones");
+                  }}
+                >
+                  HEADPHONES
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    navigate("/speakers");
+                  }}
+                >
+                  SPEAKERS
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    navigate("/earphones");
+                  }}
+                >
+                  EARPHONES
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
             <img src={headerLogo} alt="" />
@@ -124,8 +150,50 @@ const SecondaryNavigation = () => {
       )}
       <div className={classes.secNavContainer}>
         <header className={classes.secNavheader}>
-          <img src={headerLogo} alt="" />
-          <nav>
+          <img className={classes.secNavLogo} src={headerLogo} alt="" />
+          <div className={classes.ddLogoContainer}>
+            <Dropdown className={classes.navDropdown}>
+              <Dropdown.Toggle variant="none" id="dropdown-basic">
+                <FontAwesomeIcon
+                  icon={icon({ name: "bars" })}
+                  className={classes.cartIcon}
+                />
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                >
+                  HOME
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    navigate("/headphones");
+                  }}
+                >
+                  HEADPHONES
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    navigate("/speakers");
+                  }}
+                >
+                  SPEAKERS
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    navigate("/earphones");
+                  }}
+                >
+                  EARPHONES
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            <img src={headerLogo} alt="" />
+          </div>
+          <nav className={classes.desktopNav}>
             <ul>
               <li>
                 <NavLink

@@ -78,6 +78,9 @@ Dropdown {
   .logo {
     display: felx;
   }
+  .secNavLogo {
+    display: none;
+  }
 
   .navDropdown {
     display: none;
@@ -202,5 +205,9 @@ Dropdown {
       height: 100%;
       margin-left: 2rem;
     }
+  }
+
+  .secNavContainer {
+    padding: 0 2.5rem;
   }
 }
