@@ -60,14 +60,16 @@ const ProductDetailsPage = () => {
         Go Back
       </Link>
       <div className={classes.prodAdContainer}>
-        {<img src={DUMMYPRODUCT.prodImg} alt="" />}
+        <div className={classes.prodImgContainer}>
+          {<img src={DUMMYPRODUCT.prodImg} alt="" />}
+        </div>
 
         <div>
           {DUMMYPRODUCT.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
           <div className={classes.adDesc}>
             <h2>{DUMMYPRODUCT.prodTitle}</h2>
             <p>{DUMMYPRODUCT.prodDesc}</p>
-
+            <p className={classes.prodPrice}>$ {DUMMYPRODUCT.prodPrice}</p>
             <div className={classes.addToCart}>
               <div className={classes.quantity}>
                 <div className={classes.amount}>-</div>
