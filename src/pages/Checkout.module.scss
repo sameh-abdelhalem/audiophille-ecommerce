@@ -22,3 +22,12 @@
 .btnText:hover {
   color: $primaryOrange;
 }
+
+@media only screen and (max-width: 1024px) {
+  .mainContainer {
+    flex-direction: column;
+  }
+  .backBtn {
+    padding-top: 3.5rem;
+  }
+}

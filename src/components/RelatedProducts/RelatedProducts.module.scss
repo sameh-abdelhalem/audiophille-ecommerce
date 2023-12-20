@@ -39,3 +39,9 @@ h4 {
     margin: 2rem auto auto auto;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .products {
+    margin: 3rem 0 5rem 0;
+  }
+}
