@@ -46,3 +46,10 @@
     display: block;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .personImgTablet {
+    object-fit: none;
+    height: 20rem;
+  }
+}

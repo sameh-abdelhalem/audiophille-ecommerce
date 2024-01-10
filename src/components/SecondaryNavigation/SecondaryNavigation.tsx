@@ -30,6 +30,7 @@ const SecondaryNavigation = () => {
         </div>
       )}
       <div className={classes.hero}>
+        <div className={classes.mobileBackgroundOpacity}></div>
         <header className={classes.secNavheader}>
           <div className={classes.ddLogoContainer}>
             <Dropdown className={classes.navDropdown}>
@@ -125,7 +126,7 @@ const SecondaryNavigation = () => {
           />
         </header>
 
-        <img src={headPhones} className={classes.headphones} />
+        {/* <img src={headPhones} className={classes.headphones} /> */}
 
         <div className={classes.productContainer}>
           {toggleCart && <Cart hideCart={showCartHandler} />}

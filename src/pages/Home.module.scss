@@ -96,7 +96,6 @@ h4 {
     background-image: url("../assets/Figma/hero-section/featured_speakerBG_tablet.png");
     background-repeat: no-repeat;
     background-position: center;
-
     .productDesc {
       margin: auto;
       width: 32.5%;
@@ -112,7 +111,7 @@ h4 {
 
     .cropContainer {
       margin: auto;
-      overflow: auto;
+      // overflow: auto;
       align-self: auto;
       width: auto;
 
@@ -126,5 +125,15 @@ h4 {
   .secondAd {
     background-image: url(../assets/Figma/hero-section/secondAd_tablet.png);
     margin: 2rem 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .productDesc {
+    width: 80% !important;
+  }
+  .secondAd {
+    margin: 2rem 0;
+    background-position: center;
   }
 }

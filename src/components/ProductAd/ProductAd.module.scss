@@ -138,3 +138,10 @@
     }
   }
 }
+@media only screen and (max-width: 500px) {
+  .prodImageContainer {
+    img {
+      width: 100%;
+    }
+  }
+}

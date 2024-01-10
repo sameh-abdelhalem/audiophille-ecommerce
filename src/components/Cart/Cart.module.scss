@@ -85,3 +85,8 @@
     width: 58%;
   }
 }
+@media only screen and (max-width: 500px) {
+  .cartContainer {
+    width: 100%;
+  }
+}

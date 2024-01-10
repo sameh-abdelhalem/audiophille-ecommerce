@@ -20,3 +20,19 @@
 .titleButton {
   margin-left: 17.5%;
 }
+
+@media only screen and (max-width: 500px) {
+  .thirdAd {
+    flex-direction: column;
+    img {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+  .productDesc {
+    margin-left: 0;
+    .titleButton {
+      margin: 0 auto;
+    }
+  }
+}

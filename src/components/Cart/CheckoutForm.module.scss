@@ -134,3 +134,42 @@
     width: 100%;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .adjInputs {
+    flex-direction: column;
+  }
+  label {
+    input {
+      margin: 0.5rem 0 0.5rem 0 !important;
+
+      border: 1px solid lightgray;
+      border-radius: 0.5rem;
+
+      padding: 1rem;
+    }
+    select {
+      margin: 0.5rem 0 0.5rem 0 !important;
+    }
+  }
+  .halfWidth {
+    width: 100% !important;
+  }
+  .pmtRadio {
+    flex-direction: column;
+  }
+  .pmtRadio {
+    .radioContainer {
+      width: 100%;
+    }
+    label {
+      input {
+        margin-right: 1rem !important;
+      }
+    }
+  }
+
+  .radioLabelsDiv {
+    flex-direction: column;
+  }
+}

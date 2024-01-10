@@ -176,3 +176,24 @@
     margin: 6.5rem 0;
   }
 }
+@media only screen and (max-width: 500px) {
+  .prodAdContainer {
+    flex-direction: column;
+  }
+
+  .boxContent {
+    flex-direction: column;
+    ul {
+      width: 100% !important;
+    }
+  }
+  .prodImagesContainer {
+    flex-direction: column;
+    .secImages {
+      width: 100%;
+    }
+    .mainImage {
+      width: 100%;
+    }
+  }
+}
