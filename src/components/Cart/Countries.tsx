@@ -1,6 +1,6 @@
 const Countries = () => {
   return (
-    <select name="country" id="country" placeholder="United States">
+    <select name="country" id="country">
       <option value="Afghanistan">Afghanistan</option>
       <option value="Åland Islands">Åland Islands</option>
       <option value="Albania">Albania</option>
