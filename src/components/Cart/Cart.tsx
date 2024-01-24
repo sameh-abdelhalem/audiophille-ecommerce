@@ -5,43 +5,49 @@ import { useState } from "react";
 import { log } from "console";
 import { useNavigate } from "react-router-dom";
 import CartProd from "./CartProd";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../store";
 const Cart = (props: any) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const navigateToCheckoutHandler = () => {
     navigate("/checkout");
     props.hideCart();
   };
+  const removeAllHandler = () => {
+    dispatch(cartActions.removeAll());
+  };
+  const cartProducts = useSelector((state: any) => state.cart.products);
   return (
     <div className={classes.backdrop}>
       <div className={classes.cartContainer}>
         <div className={classes.cartContent}>
           <div className={classes.cartHeader}>
             <h6>CART (3)</h6>
-            <p
-              className={classes.remove}
-              onClick={() => {
-                console.log("all items were removed !!");
-              }}
-            >
+            <p className={classes.remove} onClick={removeAllHandler}>
               Remove all
             </p>
           </div>
-          <div className={classes.prodContainer}>
-            <CartProd
-              prodImage={headphones}
-              prodPrice={2.999}
-              prodTitle="XX99 MK II"
-            />
+          {cartProducts.map((prod: any) => {
+            return (
+              <div className={classes.prodContainer}>
+                <CartProd
+                  prodImage={prod.prodImg}
+                  prodPrice={2.999}
+                  prodTitle="XX99 MK II"
+                />
 
-            <div className={classes.addToCart}>
-              <div className={classes.quantity}>
-                <div className={classes.amount}>-</div>
-                <div>1</div>
-                <div className={classes.amount}>+</div>
+                <div className={classes.addToCart}>
+                  <div className={classes.quantity}>
+                    <div className={classes.amount}>-</div>
+                    <div>1</div>
+                    <div className={classes.amount}>+</div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            );
+          })}
           <div className={classes.cartFooter}>
             <div className={classes.totalPrice}>
               <p className={classes.amount}>TOTAL</p>
