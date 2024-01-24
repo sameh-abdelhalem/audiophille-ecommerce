@@ -10,7 +10,9 @@ import imgGal2 from "../assets/product-xx99-mark-two-headphones/desktop/image-ga
 import imgGal3 from "../assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg";
 import { url } from "inspector";
 import RelatedProducts from "../components/RelatedProducts/RelatedProducts";
-const DUMMYPRODUCT = {
+import { useDispatch } from "react-redux";
+import { cartActions } from "../store";
+const DUMMYPRODUCT: any = {
   prodId: 1,
   prodTitle: "XX99 Mark II Headphones",
   isNew: true,
@@ -52,6 +54,11 @@ const DUMMYPRODUCT = {
 };
 
 const ProductDetailsPage = () => {
+  const dispatch = useDispatch();
+
+  const addToCartHandler = () => {
+    dispatch(cartActions.addToCart(DUMMYPRODUCT));
+  };
   const params = useParams();
 
   return (
@@ -76,7 +83,7 @@ const ProductDetailsPage = () => {
                 <div>1</div>
                 <div className={classes.amount}>+</div>
               </div>
-              <Button onClick={null} style="primary">
+              <Button onClick={addToCartHandler} style="primary">
                 ADD TO CART
               </Button>
             </div>
@@ -91,7 +98,7 @@ const ProductDetailsPage = () => {
         <div className={classes.boxContent}>
           <h3>in the box</h3>
           <ul>
-            {DUMMYPRODUCT.prodBox.map((item) => {
+            {DUMMYPRODUCT.prodBox.map((item: any) => {
               return (
                 <li key={item.item}>
                   <span className={classes.quantity}>{item.quantity}x</span>{" "}
