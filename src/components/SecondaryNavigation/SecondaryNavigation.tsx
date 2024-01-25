@@ -11,8 +11,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import Cart from "../Cart/Cart";
 import Dropdown from "react-bootstrap/Dropdown";
+import { useSelector } from "react-redux";
 
 const SecondaryNavigation = () => {
+  const cartProducts = useSelector((state: any) => state.cart.products);
+
   const [transitionState, setTransitionState] = useState(false);
   const [toggleCart, setToggleCart] = useState(false);
 
@@ -119,11 +122,14 @@ const SecondaryNavigation = () => {
               </li>
             </ul>
           </nav>
-          <FontAwesomeIcon
-            icon={icon({ name: "cart-shopping" })}
-            className={classes.cartIcon}
-            onClick={showCartHandler}
-          />
+          <div>
+            <FontAwesomeIcon
+              icon={icon({ name: "cart-shopping" })}
+              className={classes.cartIcon}
+              onClick={showCartHandler}
+            />
+            {cartProducts.length != 0 && cartProducts.length}
+          </div>
         </header>
 
         {/* <img src={headPhones} className={classes.headphones} /> */}
@@ -238,11 +244,15 @@ const SecondaryNavigation = () => {
               </li>
             </ul>
           </nav>
-          <FontAwesomeIcon
-            icon={icon({ name: "cart-shopping" })}
-            className={classes.cartIcon}
-            onClick={showCartHandler}
-          />
+          <div>
+            <FontAwesomeIcon
+              icon={icon({ name: "cart-shopping" })}
+              className={classes.cartIcon}
+              onClick={showCartHandler}
+            />
+            {cartProducts.length != 0 && cartProducts.length}
+          </div>
+          {}
         </header>
 
         {!currentPath.pathname.slice(1).includes("/") &&

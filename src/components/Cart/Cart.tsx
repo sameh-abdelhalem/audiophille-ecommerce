@@ -24,7 +24,7 @@ const Cart = (props: any) => {
       <div className={classes.cartContainer}>
         <div className={classes.cartContent}>
           <div className={classes.cartHeader}>
-            <h6>CART (3)</h6>
+            <h6>CART ({cartProducts.length})</h6>
             <p className={classes.remove} onClick={removeAllHandler}>
               Remove all
             </p>
@@ -34,8 +34,8 @@ const Cart = (props: any) => {
               <div className={classes.prodContainer}>
                 <CartProd
                   prodImage={prod.prodImg}
-                  prodPrice={2.999}
-                  prodTitle="XX99 MK II"
+                  prodPrice={prod.prodPrice}
+                  prodTitle={prod.prodTitle}
                 />
 
                 <div className={classes.addToCart}>
@@ -51,7 +51,12 @@ const Cart = (props: any) => {
           <div className={classes.cartFooter}>
             <div className={classes.totalPrice}>
               <p className={classes.amount}>TOTAL</p>
-              <h6>$ 5,396</h6>
+              <h6>
+                ${" "}
+                {cartProducts.reduce((prevProd: any, newProd: any) => {
+                  return prevProd.prodPrice + newProd.prodPrice;
+                }, 0)}
+              </h6>
             </div>
             <Button style="primary" onClick={navigateToCheckoutHandler}>
               CHECKOUT
