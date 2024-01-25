@@ -54,7 +54,10 @@ const Cart = (props: any) => {
               <h6>
                 ${" "}
                 {cartProducts.reduce((prevProd: any, newProd: any) => {
-                  return prevProd.prodPrice + newProd.prodPrice;
+                  console.log(prevProd);
+                  console.log(newProd);
+
+                  return prevProd + newProd.prodPrice;
                 }, 0)}
               </h6>
             </div>
