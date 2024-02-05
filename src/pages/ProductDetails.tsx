@@ -63,7 +63,9 @@ const ProductDetailsPage = () => {
     setProductQuantity((prevState) => prevState + 1);
   };
   const addToCartHandler = () => {
-    dispatch(cartActions.addToCart(DUMMYPRODUCT));
+    dispatch(
+      cartActions.addToCart({ prodQuantity: prodQuantity, ...DUMMYPRODUCT })
+    );
   };
   const params = useParams();
 

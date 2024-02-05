@@ -41,7 +41,7 @@ const Cart = (props: any) => {
                 <div className={classes.addToCart}>
                   <div className={classes.quantity}>
                     <div className={classes.amount}>-</div>
-                    <div>1</div>
+                    <div>{prod.prodQuantity}</div>
                     <div className={classes.amount}>+</div>
                   </div>
                 </div>

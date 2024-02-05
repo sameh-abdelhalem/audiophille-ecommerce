@@ -6,7 +6,16 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart(state, action) {
-      state.products.push(action.payload);
+      if (state.products.length > 0) {
+        state.products = state.products.map((prod: any) => {
+          if (prod.prodId == action.payload.prodId) {
+            return {
+              ...prod,
+              prodQuantity: prod.prodQuantity + action.payload.prodQuantity,
+            };
+          }
+        });
+      } else state.products.push(action.payload);
     },
     removeFromCart(state) {
       console.log(state);

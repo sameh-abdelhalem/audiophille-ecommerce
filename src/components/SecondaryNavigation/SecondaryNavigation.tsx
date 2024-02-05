@@ -123,13 +123,17 @@ const SecondaryNavigation = () => {
             </ul>
           </nav>
           <div>
-            <div className={classes.cartIcon}>
+            <div>
               <FontAwesomeIcon
                 icon={icon({ name: "cart-shopping" })}
                 className={classes.cartIcon}
                 onClick={showCartHandler}
               />
-              {cartProducts.length != 0 && cartProducts.length}
+              {cartProducts.length != 0 &&
+                cartProducts.reduce(
+                  (prod: any, currProd: any) => prod + currProd.prodQuantity,
+                  0
+                )}
             </div>
           </div>
         </header>
@@ -252,7 +256,11 @@ const SecondaryNavigation = () => {
               className={classes.cartIcon}
               onClick={showCartHandler}
             />
-            {cartProducts.length != 0 && cartProducts.length}
+            {cartProducts.length != 0 &&
+              cartProducts.reduce(
+                (prod: any, currProd: any) => prod + currProd.prodQuantity,
+                0
+              )}
           </div>
           {}
         </header>
