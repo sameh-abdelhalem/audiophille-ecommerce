@@ -18,6 +18,7 @@ const Cart = (props: any) => {
   const removeAllHandler = () => {
     dispatch(cartActions.removeAll());
   };
+
   const cartProducts = useSelector((state: any) => state.cart.products);
   return (
     <div className={classes.backdrop}>
@@ -40,9 +41,27 @@ const Cart = (props: any) => {
 
                 <div className={classes.addToCart}>
                   <div className={classes.quantity}>
-                    <div className={classes.amount}>-</div>
+                    <div
+                      className={classes.amount}
+                      onClick={() => {
+                        if (prod.prodQuantity > 1) {
+                          dispatch(cartActions.decrementProd(prod.prodId));
+                        } else {
+                          dispatch(cartActions.removeProd(prod.prodId));
+                        }
+                      }}
+                    >
+                      -
+                    </div>
                     <div>{prod.prodQuantity}</div>
-                    <div className={classes.amount}>+</div>
+                    <div
+                      className={classes.amount}
+                      onClick={() => {
+                        dispatch(cartActions.incrementProd(prod.prodId));
+                      }}
+                    >
+                      +
+                    </div>
                   </div>
                 </div>
               </div>
@@ -57,7 +76,7 @@ const Cart = (props: any) => {
                   console.log(prevProd);
                   console.log(newProd);
 
-                  return prevProd + newProd.prodPrice;
+                  return prevProd + newProd.prodPrice * newProd.prodQuantity;
                 }, 0)}
               </h6>
             </div>

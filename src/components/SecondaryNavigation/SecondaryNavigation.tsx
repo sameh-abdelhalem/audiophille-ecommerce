@@ -129,11 +129,12 @@ const SecondaryNavigation = () => {
                 className={classes.cartIcon}
                 onClick={showCartHandler}
               />
-              {cartProducts.length != 0 &&
-                cartProducts.reduce(
-                  (prod: any, currProd: any) => prod + currProd.prodQuantity,
-                  0
-                )}
+              {cartProducts.length != 0
+                ? cartProducts.reduce(
+                    (prod: any, currProd: any) => prod + currProd.prodQuantity,
+                    0
+                  )
+                : 0}
             </div>
           </div>
         </header>
@@ -256,11 +257,13 @@ const SecondaryNavigation = () => {
               className={classes.cartIcon}
               onClick={showCartHandler}
             />
-            {cartProducts.length != 0 &&
-              cartProducts.reduce(
-                (prod: any, currProd: any) => prod + currProd.prodQuantity,
-                0
-              )}
+
+            {cartProducts.length != 0
+              ? cartProducts.reduce(
+                  (prod: any, currProd: any) => prod + currProd.prodQuantity,
+                  0
+                )
+              : 0}
           </div>
           {}
         </header>

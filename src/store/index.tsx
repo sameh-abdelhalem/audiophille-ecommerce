@@ -23,6 +23,31 @@ const cartSlice = createSlice({
     removeAll(state) {
       state.products = [];
     },
+    incrementProd(state, action) {
+      state.products = state.products.map((prod: any) => {
+        if (prod.prodId == action.payload) {
+          return {
+            ...prod,
+            prodQuantity: prod.prodQuantity + 1,
+          };
+        }
+      });
+    },
+    decrementProd(state, action) {
+      state.products = state.products.map((prod: any) => {
+        if (prod.prodQuantity > 1 && prod.prodId == action.payload) {
+          return {
+            ...prod,
+            prodQuantity: prod.prodQuantity - 1,
+          };
+        }
+      });
+    },
+    removeProd(state, action) {
+      state.products = state.products.filter((prod: any) => {
+        return prod.prodId !== action.payload;
+      });
+    },
   },
 });
 
