@@ -50,7 +50,7 @@ const Cart = (props: any) => {
           })}
           <div className={classes.cartFooter}>
             <div className={classes.totalPrice}>
-              <p className={classes.amount}>TOTAL</p>
+              <p className={classes.amount2}>TOTAL</p>
               <h6>
                 ${" "}
                 {cartProducts.reduce((prevProd: any, newProd: any) => {

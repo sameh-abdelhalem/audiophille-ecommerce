@@ -79,6 +79,10 @@
 .amount:hover {
   color: $primaryOrange;
 }
+.amount2 {
+  color: $textGray;
+  font-size: bold;
+}
 
 @media only screen and (max-width: 1024px) {
   .cartContainer {

@@ -123,12 +123,14 @@ const SecondaryNavigation = () => {
             </ul>
           </nav>
           <div>
-            <FontAwesomeIcon
-              icon={icon({ name: "cart-shopping" })}
-              className={classes.cartIcon}
-              onClick={showCartHandler}
-            />
-            {cartProducts.length != 0 && cartProducts.length}
+            <div className={classes.cartIcon}>
+              <FontAwesomeIcon
+                icon={icon({ name: "cart-shopping" })}
+                className={classes.cartIcon}
+                onClick={showCartHandler}
+              />
+              {cartProducts.length != 0 && cartProducts.length}
+            </div>
           </div>
         </header>
 

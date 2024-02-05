@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductCategories from "../components/ProductCategories/ProductCategories";
 import PersonCardAd from "../components/PersonCardAd/PersonCardAd";
 import { Link, useParams } from "react-router-dom";
@@ -55,7 +55,13 @@ const DUMMYPRODUCT: any = {
 
 const ProductDetailsPage = () => {
   const dispatch = useDispatch();
-
+  const [prodQuantity, setProductQuantity] = useState(1);
+  const prodDecrementHandler = () => {
+    prodQuantity > 1 && setProductQuantity((prevState) => prevState - 1);
+  };
+  const prodIncrementHandler = () => {
+    setProductQuantity((prevState) => prevState + 1);
+  };
   const addToCartHandler = () => {
     dispatch(cartActions.addToCart(DUMMYPRODUCT));
   };
@@ -79,9 +85,13 @@ const ProductDetailsPage = () => {
             <p className={classes.prodPrice}>$ {DUMMYPRODUCT.prodPrice}</p>
             <div className={classes.addToCart}>
               <div className={classes.quantity}>
-                <div className={classes.amount}>-</div>
-                <div>1</div>
-                <div className={classes.amount}>+</div>
+                <div className={classes.amount} onClick={prodDecrementHandler}>
+                  -
+                </div>
+                <div>{prodQuantity}</div>
+                <div className={classes.amount} onClick={prodIncrementHandler}>
+                  +
+                </div>
               </div>
               <Button onClick={addToCartHandler} style="primary">
                 ADD TO CART
