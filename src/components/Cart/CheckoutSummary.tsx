@@ -5,41 +5,52 @@ import Button from "../UI/Button/Button";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import OrderConfirmation from "./OrderConfiramtion";
+import { useSelector } from "react-redux";
 const CheckoutSummary = () => {
+  const cartProducts = useSelector((state: any) => state.cart.products);
   const [toggleConfirmation, setToggleConfirmation] = useState(false);
   const showConfirmationHandler = () => {
     setToggleConfirmation((prevState) => !prevState);
   };
+  const totalPrice = cartProducts.reduce(
+    (prod: any, currProd: any) =>
+      prod + currProd.prodQuantity * currProd.prodPrice,
+    0
+  );
+  const vat = Number(((totalPrice * 20) / 100).toFixed(3));
+  const shipping = 50;
   return (
     <div className={classes.container}>
       <h6>SUMMARY</h6>
+      {cartProducts.map((prod: any) => (
+        <div className={classes.prodQuantityContainer}>
+          <CartProd
+            prodImage={prod.prodImg}
+            prodPrice={prod.prodPrice}
+            prodTitle={prod.prodTitle}
+          />
 
-      <div className={classes.prodQuantityContainer}>
-        <CartProd
-          prodImage={headphones}
-          prodPrice={2.999}
-          prodTitle="XX99 MK II"
-        />
+          <div className={classes.prodQuantity}>x{prod.prodQuantity}</div>
+        </div>
+      ))}
 
-        <div className={classes.prodQuantity}>x1</div>
-      </div>
       <div className={classes.totalContainer}>
         <div className={classes.totalRow}>
           <h5>TOTAL</h5>
-          <p>$ 5,396</p>
+          <p>$ {totalPrice}</p>
         </div>
         <div className={classes.totalRow}>
           <h5>SHIPPING</h5>
-          <p>$ 50</p>
+          <p>$ {shipping}</p>
         </div>
         <div className={classes.totalRow}>
           <h5>VAT (INCLUDED)</h5>
-          <p>$ 1,079</p>
+          <p>$ {vat}</p>
         </div>
       </div>
       <div className={classes.grandTotal}>
         <h5>GRAND TOTAL</h5>
-        <p>$ 5,446</p>
+        <p>$ {totalPrice + vat + shipping / 100}</p>
       </div>
       <div className={classes.extendBtn}>
         <Button style="primary" onClick={showConfirmationHandler}>

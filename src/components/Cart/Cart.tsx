@@ -25,7 +25,16 @@ const Cart = (props: any) => {
       <div className={classes.cartContainer}>
         <div className={classes.cartContent}>
           <div className={classes.cartHeader}>
-            <h6>CART ({cartProducts.length})</h6>
+            <h6>
+              CART ({" "}
+              {cartProducts.length != 0
+                ? cartProducts.reduce(
+                    (prod: any, currProd: any) => prod + currProd.prodQuantity,
+                    0
+                  )
+                : 0}
+              )
+            </h6>
             <p className={classes.remove} onClick={removeAllHandler}>
               Remove all
             </p>
@@ -35,7 +44,7 @@ const Cart = (props: any) => {
               <div className={classes.prodContainer}>
                 <CartProd
                   prodImage={prod.prodImg}
-                  prodPrice={prod.prodPrice}
+                  prodPrice={prod.prodPrice.toFixed(3)}
                   prodTitle={prod.prodTitle}
                 />
 
@@ -72,12 +81,14 @@ const Cart = (props: any) => {
               <p className={classes.amount2}>TOTAL</p>
               <h6>
                 ${" "}
-                {cartProducts.reduce((prevProd: any, newProd: any) => {
-                  console.log(prevProd);
-                  console.log(newProd);
+                {cartProducts
+                  .reduce((prevProd: any, newProd: any) => {
+                    console.log(prevProd);
+                    console.log(newProd);
 
-                  return prevProd + newProd.prodPrice * newProd.prodQuantity;
-                }, 0)}
+                    return prevProd + newProd.prodPrice * newProd.prodQuantity;
+                  }, 0)
+                  .toFixed(3)}
               </h6>
             </div>
             <Button style="primary" onClick={navigateToCheckoutHandler}>
