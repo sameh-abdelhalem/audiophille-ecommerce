@@ -12,13 +12,19 @@ const CheckoutSummary = () => {
   const showConfirmationHandler = () => {
     setToggleConfirmation((prevState) => !prevState);
   };
-  const totalPrice = cartProducts.reduce(
-    (prod: any, currProd: any) =>
-      prod + currProd.prodQuantity * currProd.prodPrice,
-    0
+  const totalPrice = Number(
+    cartProducts
+      .reduce(
+        (prod: any, currProd: any) =>
+          prod + currProd.prodQuantity * currProd.prodPrice,
+        0
+      )
+      .toFixed(3)
   );
+
   const vat = Number(((totalPrice * 20) / 100).toFixed(3));
   const shipping = 50;
+  const totalEndPrice = (totalPrice + vat + shipping / 100).toFixed(3);
   return (
     <div className={classes.container}>
       <h6>SUMMARY</h6>
@@ -50,7 +56,7 @@ const CheckoutSummary = () => {
       </div>
       <div className={classes.grandTotal}>
         <h5>GRAND TOTAL</h5>
-        <p>$ {totalPrice + vat + shipping / 100}</p>
+        <p>$ {totalEndPrice}</p>
       </div>
       <div className={classes.extendBtn}>
         <Button style="primary" onClick={showConfirmationHandler}>
@@ -63,7 +69,14 @@ const CheckoutSummary = () => {
             className={classes.backdrop}
             onClick={showConfirmationHandler}
           ></div>
-          <OrderConfirmation />
+          <OrderConfirmation
+            totalPrice={totalEndPrice}
+            prodImage={cartProducts[0].prodImg}
+            prodPrice={cartProducts[0].prodPrice}
+            prodQuantity={cartProducts[0].prodQuantity}
+            prodTitle={cartProducts[0].prodTitle}
+            prodLength={cartProducts.length}
+          />
         </>
       )}
     </div>

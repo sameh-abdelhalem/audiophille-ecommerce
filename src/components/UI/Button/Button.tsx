@@ -3,6 +3,7 @@ import classes from "./Button.module.scss";
 const Button: React.FC<{
   style: string;
   onClick: any;
+  disabled?: any;
   children: React.ReactNode;
 }> = (props) => {
   return (
@@ -17,6 +18,7 @@ const Button: React.FC<{
           : ""
       }
       onClick={props.onClick || null}
+      disabled={props.disabled || null}
     >
       {props.children}
     </button>

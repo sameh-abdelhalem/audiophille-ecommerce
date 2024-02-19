@@ -91,9 +91,19 @@ const Cart = (props: any) => {
                   .toFixed(3)}
               </h6>
             </div>
-            <Button style="primary" onClick={navigateToCheckoutHandler}>
-              CHECKOUT
-            </Button>
+            {cartProducts.length > 0 ? (
+              <Button style="primary" onClick={navigateToCheckoutHandler}>
+                CHECKOUT
+              </Button>
+            ) : (
+              <Button
+                disabled="true"
+                style="primary"
+                onClick={navigateToCheckoutHandler}
+              >
+                CHECKOUT
+              </Button>
+            )}
           </div>
         </div>
       </div>
