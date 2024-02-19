@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProductCategories from "../components/ProductCategories/ProductCategories";
 import PersonCardAd from "../components/PersonCardAd/PersonCardAd";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import classes from "./ProductDetails.module.scss";
 import prodCatImg from "../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import Button from "../components/UI/Button/Button";

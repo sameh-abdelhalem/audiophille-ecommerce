@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Root.module.scss";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLoaderData, useLocation } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 import SecondaryNavigation from "../components/SecondaryNavigation/SecondaryNavigation";
 const RouterLayout = () => {

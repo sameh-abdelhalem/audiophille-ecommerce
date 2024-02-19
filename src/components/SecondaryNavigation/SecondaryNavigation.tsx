@@ -3,7 +3,12 @@ import classes from "./SecondaryNavigation.module.scss";
 import "./SecondaryNavigation.module.scss";
 import headerLogo from "../../assets/shared/desktop/logo.svg";
 import cartIcon from "../../assets/shared/desktop/icon-cart.svg";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import {
+  NavLink,
+  useLoaderData,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { log } from "console";
 import Button from "../UI/Button/Button";
 import headPhones from "../../assets/Figma/hero-section/hero-headphones.png";

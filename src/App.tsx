@@ -9,15 +9,28 @@ import ProductDetailsPage from "./pages/ProductDetails";
 import CheckoutPage from "./pages/Checkout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ErrorPage from "./pages/Error";
+import { log } from "console";
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <RouterLayout />,
+      id: "root",
       errorElement: <ErrorPage />,
+      loader: async () => {
+        const response = await fetch(
+          "https://audiophille-react-project-default-rtdb.firebaseio.com/.json"
+        );
+        if (!response.ok) {
+        } else {
+          const resData = await response.json();
+          return resData;
+        }
+      },
 
       children: [
         { index: true, element: <HomePage /> },
+
         {
           path: "/headphones",
           element: <CategoryPage />,
@@ -29,11 +42,11 @@ function App() {
         },
         {
           path: "/speakers",
+
           element: <CategoryPage />,
         },
         {
           path: "speakers/:prodId",
-
           element: <ProductDetailsPage />,
         },
         {

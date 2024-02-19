@@ -3,7 +3,7 @@ import classes from "./ProductAd.module.scss";
 import prodCatImg from "../../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import { log } from "console";
 import Button from "../UI/Button/Button";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData, useRouteLoaderData } from "react-router-dom";
 
 const DUMMYCATPRODS: any = [
   {
@@ -24,14 +24,16 @@ const DUMMYCATPRODS: any = [
   },
 ];
 const ProductAd = () => {
+  const prods: any = useRouteLoaderData("root");
+  console.log(prods);
   let isInverted = false;
-  return DUMMYCATPRODS.map((prod: any) =>
+  return prods.map((prod: any) =>
     isInverted ? (
       <>
         <div className={classes.prodAdContainerTablet}>
           {
             <div className={classes.prodImageContainer}>
-              <img src={prod.prodImg} alt="" />
+              {<img src={prod.categoryImage.desktop} alt="" />}
             </div>
           }
           {(isInverted = !isInverted)}
@@ -39,8 +41,8 @@ const ProductAd = () => {
           <div className={classes.prodDescBtnContainer}>
             {prod.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
             <div className={classes.adDesc}>
-              <h2>{prod.prodTitle}</h2>
-              <p>{prod.prodDesc}</p>
+              <h2>{prod.name}</h2>
+              <p>{prod.description}</p>
               <Link to={"prod"}>
                 <Button onClick={null} style="primary">
                   SEE PRODUCT
@@ -55,8 +57,8 @@ const ProductAd = () => {
           <div className={classes.prodDescContainer}>
             {prod.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
             <div className={classes.adDesc}>
-              <h2>{prod.prodTitle}</h2>
-              <p>{prod.prodDesc}</p>
+              <h2>{prod.name}</h2>
+              <p>{prod.description}</p>
 
               <Link to={"prod"}>
                 <Button onClick={null} style="primary">
@@ -76,7 +78,10 @@ const ProductAd = () => {
       <div className={classes.prodAdContainer}>
         {
           <div className={classes.prodImageContainer}>
-            <img src={prod.prodImg} alt="" />
+            <img
+              src="../../assets/product-yx1-earphones/desktop/image-category-page-preview.jpg"
+              alt=""
+            />
           </div>
         }
         {(isInverted = !isInverted)}
@@ -84,8 +89,8 @@ const ProductAd = () => {
         <div className={classes.prodDescBtnContainer}>
           {prod.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
           <div className={classes.adDesc}>
-            <h2>{prod.prodTitle}</h2>
-            <p>{prod.prodDesc}</p>
+            <h2>{prod.name}</h2>
+            <p>{prod.description}</p>
             <Link to={"prod"}>
               <Button onClick={null} style="primary">
                 SEE PRODUCT

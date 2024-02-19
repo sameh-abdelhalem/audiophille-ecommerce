@@ -9,6 +9,7 @@ import featuredSpeakers from "../assets/home/desktop/image-speaker-zx9.png";
 import EarphoneThirdAd from "../components/EarphoneThirdAd/EarphoneThirdAd";
 import PersonCardAd from "../components/PersonCardAd/PersonCardAd";
 import Footer from "../components/Footer/Footer";
+import { useLoaderData } from "react-router-dom";
 const HomePage = () => {
   return (
     <>
