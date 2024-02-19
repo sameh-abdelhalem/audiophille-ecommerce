@@ -59,9 +59,11 @@ const CheckoutSummary = () => {
         <p>$ {totalEndPrice}</p>
       </div>
       <div className={classes.extendBtn}>
-        <Button style="primary" onClick={showConfirmationHandler}>
-          CONTINUE & PAY
-        </Button>
+        {cartProducts.length > 0 && (
+          <Button style="primary" onClick={showConfirmationHandler}>
+            CONTINUE & PAY
+          </Button>
+        )}
       </div>
       {toggleConfirmation && (
         <>
