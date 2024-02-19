@@ -8,11 +8,14 @@ import CategoryPage from "./pages/Category";
 import ProductDetailsPage from "./pages/ProductDetails";
 import CheckoutPage from "./pages/Checkout";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ErrorPage from "./pages/Error";
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <RouterLayout />,
+      errorElement: <ErrorPage />,
+
       children: [
         { index: true, element: <HomePage /> },
         {
