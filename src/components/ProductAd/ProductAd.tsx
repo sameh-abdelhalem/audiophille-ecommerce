@@ -39,7 +39,7 @@ const ProductAd = () => {
     })
     .map((prod: any) =>
       isInverted ? (
-        <>
+        <div key={prod.id}>
           <div className={classes.prodAdContainerTablet}>
             {
               <div className={classes.prodImageContainer}>
@@ -52,7 +52,7 @@ const ProductAd = () => {
               <div className={classes.adDesc}>
                 <h2>{prod.name}</h2>
                 <p>{prod.description}</p>
-                <Link to={"prod"}>
+                <Link to={`${prod.id}`}>
                   <Button onClick={null} style="primary">
                     SEE PRODUCT
                   </Button>
@@ -69,7 +69,7 @@ const ProductAd = () => {
                 <h2>{prod.name}</h2>
                 <p>{prod.description}</p>
 
-                <Link to={"prod"}>
+                <Link to={`${prod.id}`}>
                   <Button onClick={null} style="primary">
                     SEE PRODUCT
                   </Button>
@@ -82,9 +82,9 @@ const ProductAd = () => {
               </div>
             }
           </div>
-        </>
+        </div>
       ) : (
-        <div className={classes.prodAdContainer}>
+        <div className={classes.prodAdContainer} key={prod.id}>
           {
             <div className={classes.prodImageContainer}>
               <img src={prod.categoryImage.desktop} alt="" />
@@ -97,7 +97,7 @@ const ProductAd = () => {
             <div className={classes.adDesc}>
               <h2>{prod.name}</h2>
               <p>{prod.description}</p>
-              <Link to={"prod"}>
+              <Link to={`${prod.id}`}>
                 <Button onClick={null} style="primary">
                   SEE PRODUCT
                 </Button>

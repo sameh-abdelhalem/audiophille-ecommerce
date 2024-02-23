@@ -43,9 +43,9 @@ const Cart = (props: any) => {
             return (
               <div className={classes.prodContainer}>
                 <CartProd
-                  prodImage={prod.prodImg}
-                  prodPrice={prod.prodPrice.toFixed(3)}
-                  prodTitle={prod.prodTitle}
+                  prodImage={prod.categoryImage.desktop}
+                  prodPrice={prod.price.toFixed(3)}
+                  prodTitle={prod.title}
                 />
 
                 <div className={classes.addToCart}>
@@ -54,9 +54,9 @@ const Cart = (props: any) => {
                       className={classes.amount}
                       onClick={() => {
                         if (prod.prodQuantity > 1) {
-                          dispatch(cartActions.decrementProd(prod.prodId));
+                          dispatch(cartActions.decrementProd(prod.id));
                         } else {
-                          dispatch(cartActions.removeProd(prod.prodId));
+                          dispatch(cartActions.removeProd(prod.id));
                         }
                       }}
                     >
@@ -66,7 +66,7 @@ const Cart = (props: any) => {
                     <div
                       className={classes.amount}
                       onClick={() => {
-                        dispatch(cartActions.incrementProd(prod.prodId));
+                        dispatch(cartActions.incrementProd(prod.id));
                       }}
                     >
                       +
@@ -86,7 +86,7 @@ const Cart = (props: any) => {
                     console.log(prevProd);
                     console.log(newProd);
 
-                    return prevProd + newProd.prodPrice * newProd.prodQuantity;
+                    return prevProd + newProd.price * newProd.prodQuantity;
                   }, 0)
                   .toFixed(3)}
               </h6>

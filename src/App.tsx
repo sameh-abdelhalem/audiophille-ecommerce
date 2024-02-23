@@ -37,8 +37,19 @@ function App() {
         },
         {
           path: "headphones/:prodId",
-
+          id: "prod",
           element: <ProductDetailsPage />,
+          loader: async ({ params }) => {
+            const response = await fetch(
+              `https://audiophille-react-project-default-rtdb.firebaseio.com/${params.prodId}/.json`
+            );
+            if (!response.ok) {
+            } else {
+              console.log(params.prodId);
+              const resData = await response.json();
+              return resData;
+            }
+          },
         },
         {
           path: "/speakers",
@@ -48,6 +59,17 @@ function App() {
         {
           path: "speakers/:prodId",
           element: <ProductDetailsPage />,
+          loader: async ({ params }) => {
+            const response = await fetch(
+              `https://audiophille-react-project-default-rtdb.firebaseio.com/${params.prodId}/.json`
+            );
+            if (!response.ok) {
+            } else {
+              console.log(params.prodId);
+              const resData = await response.json();
+              return resData;
+            }
+          },
         },
         {
           path: "/earphones",
@@ -57,6 +79,17 @@ function App() {
           path: "earphones/:prodId",
 
           element: <ProductDetailsPage />,
+          loader: async ({ params }) => {
+            const response = await fetch(
+              `https://audiophille-react-project-default-rtdb.firebaseio.com/${params.prodId}/.json`
+            );
+            if (!response.ok) {
+            } else {
+              console.log(params.prodId);
+              const resData = await response.json();
+              return resData;
+            }
+          },
         },
         {
           path: "checkout",

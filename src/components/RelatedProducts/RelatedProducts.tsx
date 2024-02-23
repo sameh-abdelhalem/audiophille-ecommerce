@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useRouteLoaderData } from "react-router-dom";
 import classes from "./RelatedProducts.module.scss";
 import markIHeadphone from "../../assets/product-xx99-mark-one-headphones/desktop/image-product.jpg";
 import speakersImage from "../../assets/product-zx9-speaker/desktop/image-product.jpg";
@@ -10,23 +10,35 @@ const DUMMYRELATEDPRODUCTS = [
   { prodImage: speakersImage, prodTitle: "ZX9 SPEAKER", prodID: 3 },
 ];
 
-const RelatedProducts = () => {
+const RelatedProducts: React.FC<{
+  products: any;
+}> = (props) => {
+  const prod = useRouteLoaderData("prod");
+
   const navigate = useNavigate();
 
-  const navigateHandler = () => {
-    navigate("../");
+  const navigateHandler = (id: any) => {
+    navigate(`/${props.products.category}/${id}`, {
+      state: prod,
+    });
   };
   return (
     <>
       <h4>you may also like</h4>
       <div className={classes.products}>
-        {DUMMYRELATEDPRODUCTS.map((prod) => {
+        {console.log(props.products)}
+        {props.products.others.map((prod: any) => {
           return (
             <div className={classes.product}>
-              <img src={prod.prodImage} />
-              <h5>{prod.prodTitle}</h5>
+              <img src={prod.image.desktop} />
+              <h5>{prod.name}</h5>
 
-              <Button style="primary" onClick={navigateHandler}>
+              <Button
+                style="primary"
+                onClick={() => {
+                  navigateHandler(prod.id);
+                }}
+              >
                 SEE PRODDUCT
               </Button>
             </div>

@@ -6,16 +6,29 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart(state, action) {
-      if (state.products.length > 0) {
-        state.products = state.products.map((prod: any) => {
-          if (prod.prodId == action.payload.prodId) {
-            return {
-              ...prod,
-              prodQuantity: prod.prodQuantity + action.payload.prodQuantity,
-            };
+      const existingProdIndex = state.products.findIndex(
+        (prod: any) => prod.id === action.payload.id
+      );
+      if (existingProdIndex !== -1) {
+        const updatedProducts = state.products.map(
+          (product: any, index: any) => {
+            if (index === existingProdIndex) {
+              return {
+                ...product,
+                prodQuantity:
+                  product.prodQuantity + action.payload.prodQuantity,
+              };
+            }
+            return product;
           }
-        });
-      } else state.products.push(action.payload);
+        );
+        return { ...state, products: updatedProducts };
+      } else {
+        return {
+          ...state,
+          products: [...state.products, action.payload],
+        };
+      }
     },
     removeFromCart(state) {
       console.log(state);
@@ -25,7 +38,7 @@ const cartSlice = createSlice({
     },
     incrementProd(state, action) {
       state.products = state.products.map((prod: any) => {
-        if (prod.prodId == action.payload) {
+        if (prod.id == action.payload) {
           return {
             ...prod,
             prodQuantity: prod.prodQuantity + 1,
@@ -35,7 +48,7 @@ const cartSlice = createSlice({
     },
     decrementProd(state, action) {
       state.products = state.products.map((prod: any) => {
-        if (prod.prodQuantity > 1 && prod.prodId == action.payload) {
+        if (prod.prodQuantity > 1 && prod.id == action.payload) {
           return {
             ...prod,
             prodQuantity: prod.prodQuantity - 1,
@@ -45,7 +58,7 @@ const cartSlice = createSlice({
     },
     removeProd(state, action) {
       state.products = state.products.filter((prod: any) => {
-        return prod.prodId !== action.payload;
+        return prod.id !== action.payload;
       });
     },
   },

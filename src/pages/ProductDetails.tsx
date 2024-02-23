@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import ProductCategories from "../components/ProductCategories/ProductCategories";
 import PersonCardAd from "../components/PersonCardAd/PersonCardAd";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import {
+  Link,
+  useLoaderData,
+  useLocation,
+  useParams,
+  useRouteLoaderData,
+} from "react-router-dom";
 import classes from "./ProductDetails.module.scss";
 import prodCatImg from "../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import Button from "../components/UI/Button/Button";
@@ -12,6 +18,7 @@ import { url } from "inspector";
 import RelatedProducts from "../components/RelatedProducts/RelatedProducts";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../store";
+import { log } from "console";
 const DUMMYPRODUCT: any = {
   prodId: 1,
   prodTitle: "XX99 Mark II Headphones",
@@ -54,6 +61,8 @@ const DUMMYPRODUCT: any = {
 };
 
 const ProductDetailsPage = () => {
+  const prodDetails: any = useLoaderData();
+  console.log(prodDetails);
   const dispatch = useDispatch();
   const [prodQuantity, setProductQuantity] = useState(1);
   const prodDecrementHandler = () => {
@@ -64,7 +73,7 @@ const ProductDetailsPage = () => {
   };
   const addToCartHandler = () => {
     dispatch(
-      cartActions.addToCart({ prodQuantity: prodQuantity, ...DUMMYPRODUCT })
+      cartActions.addToCart({ prodQuantity: prodQuantity, ...prodDetails })
     );
   };
   const params = useParams();
@@ -76,15 +85,15 @@ const ProductDetailsPage = () => {
       </Link>
       <div className={classes.prodAdContainer}>
         <div className={classes.prodImgContainer}>
-          {<img src={DUMMYPRODUCT.prodImg} alt="" />}
+          {<img src={prodDetails.categoryImage.desktop} alt="" />}
         </div>
 
         <div>
-          {DUMMYPRODUCT.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
+          {prodDetails.new && <p className={classes.newProd}>NEW PRODUCT</p>}
           <div className={classes.adDesc}>
-            <h2>{DUMMYPRODUCT.prodTitle}</h2>
-            <p>{DUMMYPRODUCT.prodDesc}</p>
-            <p className={classes.prodPrice}>$ {DUMMYPRODUCT.prodPrice}</p>
+            <h2>{prodDetails.name}</h2>
+            <p>{prodDetails.description}</p>
+            <p className={classes.prodPrice}>$ {prodDetails.price}</p>
             <div className={classes.addToCart}>
               <div className={classes.quantity}>
                 <div className={classes.amount} onClick={prodDecrementHandler}>
@@ -105,12 +114,12 @@ const ProductDetailsPage = () => {
       <div className={classes.featuresContainer}>
         <div className={classes.features}>
           <h3>Features</h3>
-          <p>{DUMMYPRODUCT.prodFeatures}</p>
+          <p>{prodDetails.features}</p>
         </div>
         <div className={classes.boxContent}>
           <h3>in the box</h3>
           <ul>
-            {DUMMYPRODUCT.prodBox.map((item: any) => {
+            {prodDetails.includes.map((item: any) => {
               return (
                 <li key={item.item}>
                   <span className={classes.quantity}>{item.quantity}x</span>{" "}
@@ -123,14 +132,14 @@ const ProductDetailsPage = () => {
       </div>
       <div className={classes.prodImagesContainer}>
         <div className={classes.secImages}>
-          <img src={DUMMYPRODUCT.prodImages.firstImage} alt="" />
-          <img src={DUMMYPRODUCT.prodImages.secImage} alt="" />
+          <img src={prodDetails.gallery.first.desktop} alt="" />
+          <img src={prodDetails.gallery.second.desktop} alt="" />
         </div>
         <div className={classes.mainImage}>
-          <img src={DUMMYPRODUCT.prodImages.mainImage} alt="" />
+          <img src={prodDetails.gallery.third.desktop} alt="" />
         </div>
       </div>
-      <RelatedProducts />
+      <RelatedProducts products={prodDetails} />
       <ProductCategories />
       <PersonCardAd />
     </div>
