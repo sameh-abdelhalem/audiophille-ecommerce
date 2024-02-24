@@ -80,7 +80,14 @@ const SecondaryNavigation = () => {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            <img src={headerLogo} alt="" />
+            <img
+              src={headerLogo}
+              alt=""
+              className={classes.logo}
+              onClick={() => {
+                navigate("/");
+              }}
+            />
           </div>
 
           <nav className={classes.desktopNav}>
@@ -169,7 +176,14 @@ const SecondaryNavigation = () => {
       )}
       <div className={classes.secNavContainer}>
         <header className={classes.secNavheader}>
-          <img className={classes.secNavLogo} src={headerLogo} alt="" />
+          <img
+            className={classes.secNavLogo}
+            src={headerLogo}
+            alt=""
+            onClick={() => {
+              navigate("/");
+            }}
+          />
           <div className={classes.ddLogoContainer}>
             <Dropdown className={classes.navDropdown}>
               <Dropdown.Toggle variant="none" id="dropdown-basic">
@@ -210,7 +224,14 @@ const SecondaryNavigation = () => {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            <img src={headerLogo} alt="" />
+            <img
+              src={headerLogo}
+              alt=""
+              className={classes.logo}
+              onClick={() => {
+                navigate("/");
+              }}
+            />
           </div>
           <nav className={classes.desktopNav}>
             <ul>
