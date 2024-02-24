@@ -1,11 +1,15 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import classes from "./Footer.module.scss";
 import headerLogo from "../../assets/shared/desktop/logo.svg";
 import twitter from "../../assets/shared/desktop/icon-twitter.svg";
 import facebook from "../../assets/shared/desktop/icon-facebook.svg";
 import instagram from "../../assets/shared/desktop/icon-instagram.svg";
 const Footer = () => {
+  const currentLocation = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentLocation.pathname]);
   return (
     <div className={classes.footerContainer}>
       <div className={classes.footerDesc}>

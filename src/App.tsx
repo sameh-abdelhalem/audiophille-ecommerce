@@ -9,7 +9,7 @@ import ProductDetailsPage from "./pages/ProductDetails";
 import CheckoutPage from "./pages/Checkout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ErrorPage from "./pages/Error";
-import { log } from "console";
+
 function App() {
   const router = createBrowserRouter([
     {
