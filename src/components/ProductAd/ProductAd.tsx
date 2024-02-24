@@ -9,6 +9,7 @@ import {
   useRouteLoaderData,
 } from "react-router-dom";
 import { Product } from "../../interfaces/interfaces";
+import Skeleton from "react-loading-skeleton";
 
 const ProductAd = () => {
   const currentPath = useLocation();
@@ -23,74 +24,82 @@ const ProductAd = () => {
       return prod.category == currentPath.pathname.substring(1);
     })
     .map((prod: Product) =>
-      isInverted ? (
-        <div key={prod.id}>
-          <div className={classes.prodAdContainerTablet}>
-            {
-              <div className={classes.prodImageContainer}>
-                {<img src={prod.categoryImage.desktop} alt="" />}
-              </div>
-            }
+      isInverted
+        ? (
+            <div key={prod.id}>
+              <div className={classes.prodAdContainerTablet}>
+                {
+                  <div className={classes.prodImageContainer}>
+                    {<img src={prod.categoryImage.desktop} alt="" /> || (
+                      <Skeleton />
+                    )}
+                  </div>
+                }
 
-            <div className={classes.prodDescBtnContainer}>
-              {prod.new && <p className={classes.newProd}>NEW PRODUCT</p>}
-              <div className={classes.adDesc}>
-                <h2>{prod.name}</h2>
-                <p>{prod.description}</p>
-                <Link to={`${prod.id}`}>
-                  <Button onClick={null} style="primary">
-                    SEE PRODUCT
-                  </Button>
-                </Link>
+                <div className={classes.prodDescBtnContainer}>
+                  {prod.new && <p className={classes.newProd}>NEW PRODUCT</p>}
+                  <div className={classes.adDesc}>
+                    <h2>{prod.name}</h2>
+                    <p>{prod.description}</p>
+                    <Link to={`${prod.id}`}>
+                      <Button onClick={null} style="primary">
+                        SEE PRODUCT
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className={classes.prodAdContainerDesktop}>
+                {(isInverted = !isInverted)}
+
+                <div className={classes.prodDescContainer}>
+                  {prod.new && <p className={classes.newProd}>NEW PRODUCT</p>}
+                  <div className={classes.adDesc}>
+                    <h2>{prod.name}</h2>
+                    <p>{prod.description}</p>
+
+                    <Link to={`${prod.id}`}>
+                      <Button onClick={null} style="primary">
+                        SEE PRODUCT
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+                {
+                  <div className={classes.prodImageContainer}>
+                    {<img src={prod.categoryImage.desktop} alt="" /> || (
+                      <Skeleton />
+                    )}
+                  </div>
+                }
               </div>
             </div>
-          </div>
-          <div className={classes.prodAdContainerDesktop}>
-            {(isInverted = !isInverted)}
+          ) || <Skeleton />
+        : (
+            <div className={classes.prodAdContainer} key={prod.id}>
+              {
+                <div className={classes.prodImageContainer}>
+                  {<img src={prod.categoryImage.desktop} alt="" /> || (
+                    <Skeleton />
+                  )}
+                </div>
+              }
+              {(isInverted = !isInverted)}
 
-            <div className={classes.prodDescContainer}>
-              {prod.new && <p className={classes.newProd}>NEW PRODUCT</p>}
-              <div className={classes.adDesc}>
-                <h2>{prod.name}</h2>
-                <p>{prod.description}</p>
-
-                <Link to={`${prod.id}`}>
-                  <Button onClick={null} style="primary">
-                    SEE PRODUCT
-                  </Button>
-                </Link>
+              <div className={classes.prodDescBtnContainer}>
+                {prod.new && <p className={classes.newProd}>NEW PRODUCT</p>}
+                <div className={classes.adDesc}>
+                  <h2>{prod.name}</h2>
+                  <p>{prod.description}</p>
+                  <Link to={`${prod.id}`}>
+                    <Button onClick={null} style="primary">
+                      SEE PRODUCT
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
-            {
-              <div className={classes.prodImageContainer}>
-                <img src={prod.categoryImage.desktop} alt="" />
-              </div>
-            }
-          </div>
-        </div>
-      ) : (
-        <div className={classes.prodAdContainer} key={prod.id}>
-          {
-            <div className={classes.prodImageContainer}>
-              <img src={prod.categoryImage.desktop} alt="" />
-            </div>
-          }
-          {(isInverted = !isInverted)}
-
-          <div className={classes.prodDescBtnContainer}>
-            {prod.new && <p className={classes.newProd}>NEW PRODUCT</p>}
-            <div className={classes.adDesc}>
-              <h2>{prod.name}</h2>
-              <p>{prod.description}</p>
-              <Link to={`${prod.id}`}>
-                <Button onClick={null} style="primary">
-                  SEE PRODUCT
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      )
+          ) || <Skeleton />
     );
 };
 

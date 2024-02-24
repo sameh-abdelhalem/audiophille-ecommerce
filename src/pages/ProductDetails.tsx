@@ -19,6 +19,7 @@ import RelatedProducts from "../components/RelatedProducts/RelatedProducts";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../store";
 import { log } from "console";
+import Skeleton from "react-loading-skeleton";
 const DUMMYPRODUCT: any = {
   prodId: 1,
   prodTitle: "XX99 Mark II Headphones",
@@ -82,34 +83,46 @@ const ProductDetailsPage = () => {
       <Link to={"/"} className={classes.returnLink}>
         Go Back
       </Link>
-      <div className={classes.prodAdContainer}>
-        <div className={classes.prodImgContainer}>
-          {<img src={prodDetails.categoryImage.desktop} alt="" />}
-        </div>
+      {(
+        <div className={classes.prodAdContainer}>
+          <div className={classes.prodImgContainer}>
+            {<img src={prodDetails.categoryImage.desktop} alt="" /> || (
+              <Skeleton />
+            )}
+          </div>
 
-        <div>
-          {prodDetails.new && <p className={classes.newProd}>NEW PRODUCT</p>}
-          <div className={classes.adDesc}>
-            <h2>{prodDetails.name}</h2>
-            <p>{prodDetails.description}</p>
-            <p className={classes.prodPrice}>$ {prodDetails.price}</p>
-            <div className={classes.addToCart}>
-              <div className={classes.quantity}>
-                <div className={classes.amount} onClick={prodDecrementHandler}>
-                  -
+          <div>
+            {prodDetails.new && <p className={classes.newProd}>NEW PRODUCT</p>}
+            <div className={classes.adDesc}>
+              <h2>{prodDetails.name}</h2>
+              <p>{prodDetails.description}</p>
+              <p className={classes.prodPrice}>$ {prodDetails.price}</p>
+              <div className={classes.addToCart}>
+                <div className={classes.quantity}>
+                  <div
+                    className={classes.amount}
+                    onClick={prodDecrementHandler}
+                  >
+                    -
+                  </div>
+                  <div>{prodQuantity}</div>
+                  <div
+                    className={classes.amount}
+                    onClick={prodIncrementHandler}
+                  >
+                    +
+                  </div>
                 </div>
-                <div>{prodQuantity}</div>
-                <div className={classes.amount} onClick={prodIncrementHandler}>
-                  +
-                </div>
+                <Button onClick={addToCartHandler} style="primary">
+                  ADD TO CART
+                </Button>
               </div>
-              <Button onClick={addToCartHandler} style="primary">
-                ADD TO CART
-              </Button>
             </div>
           </div>
         </div>
-      </div>
+      ) || <Skeleton />}
+
+      <Skeleton />
       <div className={classes.featuresContainer}>
         <div className={classes.features}>
           <h3>Features</h3>
