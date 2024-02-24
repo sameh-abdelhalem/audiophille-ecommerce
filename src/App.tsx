@@ -45,7 +45,6 @@ function App() {
             );
             if (!response.ok) {
             } else {
-              console.log(params.prodId);
               const resData = await response.json();
               return resData;
             }
@@ -65,7 +64,6 @@ function App() {
             );
             if (!response.ok) {
             } else {
-              console.log(params.prodId);
               const resData = await response.json();
               return resData;
             }
@@ -85,7 +83,6 @@ function App() {
             );
             if (!response.ok) {
             } else {
-              console.log(params.prodId);
               const resData = await response.json();
               return resData;
             }

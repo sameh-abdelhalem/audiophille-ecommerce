@@ -1,6 +1,6 @@
 const Countries = () => {
   return (
-    <select name="country" id="country">
+    <select name="country" id="country" defaultValue={"United States"}>
       <option value="Afghanistan">Afghanistan</option>
       <option value="Åland Islands">Åland Islands</option>
       <option value="Albania">Albania</option>
@@ -264,9 +264,6 @@ const Countries = () => {
       <option value="United Arab Emirates">United Arab Emirates</option>
       <option value="United Kingdom">United Kingdom</option>
       <option value="United States">United States</option>
-      <option value="United States" disabled selected hidden>
-        United States
-      </option>
       <option value="United States Minor Outlying Islands">
         United States Minor Outlying Islands
       </option>

@@ -1,8 +1,5 @@
 import classes from "./Cart.module.scss";
-import headphones from "../../assets/cart/image-xx99-mark-one-headphones.jpg";
 import Button from "../UI/Button/Button";
-import { useState } from "react";
-import { log } from "console";
 import { useNavigate } from "react-router-dom";
 import CartProd from "./CartProd";
 import { useDispatch, useSelector } from "react-redux";
@@ -41,7 +38,7 @@ const Cart = (props: any) => {
           </div>
           {cartProducts.map((prod: any) => {
             return (
-              <div className={classes.prodContainer}>
+              <div className={classes.prodContainer} key={prod.id}>
                 <CartProd
                   prodImage={prod.categoryImage.desktop}
                   prodPrice={prod.price}
@@ -82,9 +79,6 @@ const Cart = (props: any) => {
               <h6>
                 ${" "}
                 {cartProducts.reduce((prevProd: any, newProd: any) => {
-                  console.log(prevProd);
-                  console.log(newProd);
-
                   return prevProd + newProd.price * newProd.prodQuantity;
                 }, 0)}
               </h6>

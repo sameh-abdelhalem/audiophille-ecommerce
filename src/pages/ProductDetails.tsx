@@ -62,7 +62,6 @@ const DUMMYPRODUCT: any = {
 
 const ProductDetailsPage = () => {
   const prodDetails: any = useLoaderData();
-  console.log(prodDetails);
   const dispatch = useDispatch();
   const [prodQuantity, setProductQuantity] = useState(1);
   const prodDecrementHandler = () => {

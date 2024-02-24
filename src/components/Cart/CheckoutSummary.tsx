@@ -27,7 +27,7 @@ const CheckoutSummary = () => {
     <div className={classes.container}>
       <h6>SUMMARY</h6>
       {cartProducts.map((prod: any) => (
-        <div className={classes.prodQuantityContainer}>
+        <div className={classes.prodQuantityContainer} key={prod.id}>
           <CartProd
             prodImage={prod.categoryImage.desktop}
             prodPrice={prod.price}

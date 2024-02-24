@@ -26,10 +26,9 @@ const RelatedProducts: React.FC<{
     <>
       <h4>you may also like</h4>
       <div className={classes.products}>
-        {console.log(props.products)}
         {props.products.others.map((prod: any) => {
           return (
-            <div className={classes.product}>
+            <div className={classes.product} key={prod.id}>
               <img src={prod.image.desktop} />
               <h5>{prod.name}</h5>
 

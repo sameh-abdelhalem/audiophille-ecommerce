@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./ProductAd.module.scss";
 import prodCatImg from "../../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
-import { log } from "console";
 import Button from "../UI/Button/Button";
 import {
   Link,
@@ -31,7 +30,6 @@ const DUMMYCATPRODS: any = [
 const ProductAd = () => {
   const currentPath = useLocation();
   const prods: any = useRouteLoaderData("root");
-  console.log(currentPath.pathname);
   let isInverted = false;
   return prods
     .filter((prod: any) => {

@@ -1,5 +1,5 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
-import { log } from "console";
+
 const initialState: any = { products: [] };
 const cartSlice = createSlice({
   name: "cart",
@@ -30,9 +30,7 @@ const cartSlice = createSlice({
         };
       }
     },
-    removeFromCart(state) {
-      console.log(state);
-    },
+    removeFromCart(state) {},
     removeAll(state) {
       state.products = [];
     },
