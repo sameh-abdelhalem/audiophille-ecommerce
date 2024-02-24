@@ -8,34 +8,17 @@ import {
   useLocation,
   useRouteLoaderData,
 } from "react-router-dom";
+import { Product } from "../../interfaces/interfaces";
 
-const DUMMYCATPRODS: any = [
-  {
-    prodId: 13,
-    prodTitle: "XX99 Mark II Headphones",
-    prodDesc:
-      "The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.",
-    prodImg: prodCatImg,
-    isNew: true,
-  },
-  {
-    prodId: 12,
-    prodTitle: "XX99 Mark II Headphones",
-    prodDesc:
-      "The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.",
-    prodImg: prodCatImg,
-    isNew: false,
-  },
-];
 const ProductAd = () => {
   const currentPath = useLocation();
   const prods: any = useRouteLoaderData("root");
   let isInverted = false;
   return prods
-    .filter((prod: any) => {
+    .filter((prod: Product) => {
       return prod.category == currentPath.pathname.substring(1);
     })
-    .map((prod: any) =>
+    .map((prod: Product) =>
       isInverted ? (
         <div key={prod.id}>
           <div className={classes.prodAdContainerTablet}>
@@ -46,7 +29,7 @@ const ProductAd = () => {
             }
 
             <div className={classes.prodDescBtnContainer}>
-              {prod.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
+              {prod.new && <p className={classes.newProd}>NEW PRODUCT</p>}
               <div className={classes.adDesc}>
                 <h2>{prod.name}</h2>
                 <p>{prod.description}</p>
@@ -62,7 +45,7 @@ const ProductAd = () => {
             {(isInverted = !isInverted)}
 
             <div className={classes.prodDescContainer}>
-              {prod.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
+              {prod.new && <p className={classes.newProd}>NEW PRODUCT</p>}
               <div className={classes.adDesc}>
                 <h2>{prod.name}</h2>
                 <p>{prod.description}</p>
@@ -91,7 +74,7 @@ const ProductAd = () => {
           {(isInverted = !isInverted)}
 
           <div className={classes.prodDescBtnContainer}>
-            {prod.isNew && <p className={classes.newProd}>NEW PRODUCT</p>}
+            {prod.new && <p className={classes.newProd}>NEW PRODUCT</p>}
             <div className={classes.adDesc}>
               <h2>{prod.name}</h2>
               <p>{prod.description}</p>

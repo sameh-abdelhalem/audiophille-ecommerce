@@ -161,7 +161,12 @@ const SecondaryNavigation = () => {
             <p className={classes.newProd}>NEW PRODUCT</p>
             <h1>{products[2].name}</h1>
             <p>{products[2].description}</p>
-            <Button onClick={null} style="primary">
+            <Button
+              onClick={() => {
+                navigate(`./${products[2].category}/${products[2].id}`);
+              }}
+              style="primary"
+            >
               SEE PRODUCT
             </Button>
           </div>
