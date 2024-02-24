@@ -3,7 +3,7 @@ import classes from "./CheckoutForm.module.scss";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store";
-import { log } from "console";
+
 const CheckoutForm = () => {
   const {
     register,

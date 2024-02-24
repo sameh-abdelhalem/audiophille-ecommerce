@@ -32,7 +32,7 @@ const SecondaryNavigation = () => {
   const showCartHandler = () => {
     setToggleCart((prevState) => !prevState);
   };
-  return currentPath.pathname.length === 1 ? (
+  return currentPath.pathname.length === 1 && products ? (
     <>
       {toggleCart && (
         <div className={classes.relativeDiv}>
@@ -143,7 +143,7 @@ const SecondaryNavigation = () => {
                 className={classes.cartIcon}
                 onClick={showCartHandler}
               />
-              {cartProducts.length != 0
+              {cartProducts && cartProducts.length != 0
                 ? cartProducts.reduce(
                     (prod: any, currProd: any) => prod + currProd.prodQuantity,
                     0
@@ -155,22 +155,24 @@ const SecondaryNavigation = () => {
 
         {/* <img src={headPhones} className={classes.headphones} /> */}
 
-        <div className={classes.productContainer}>
-          {toggleCart && <Cart hideCart={showCartHandler} />}
-          <div className={classes.productDesc}>
-            <p className={classes.newProd}>NEW PRODUCT</p>
-            <h1>{products[2].name}</h1>
-            <p>{products[2].description}</p>
-            <Button
-              onClick={() => {
-                navigate(`./${products[2].category}/${products[2].id}`);
-              }}
-              style="primary"
-            >
-              SEE PRODUCT
-            </Button>
+        {products && (
+          <div className={classes.productContainer}>
+            {toggleCart && <Cart hideCart={showCartHandler} />}
+            <div className={classes.productDesc}>
+              <p className={classes.newProd}>NEW PRODUCT</p>
+              <h1>{products[2].name && products[2].name}</h1>
+              <p>{products[2].description}</p>
+              <Button
+                onClick={() => {
+                  navigate(`./${products[2].category}/${products[2].id}`);
+                }}
+                style="primary"
+              >
+                SEE PRODUCT
+              </Button>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   ) : (
@@ -288,7 +290,7 @@ const SecondaryNavigation = () => {
               onClick={showCartHandler}
             />
 
-            {cartProducts.length != 0
+            {cartProducts && cartProducts.length != 0
               ? cartProducts.reduce(
                   (prod: any, currProd: any) => prod + currProd.prodQuantity,
                   0

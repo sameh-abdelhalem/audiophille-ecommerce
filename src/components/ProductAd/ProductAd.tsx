@@ -14,6 +14,10 @@ const ProductAd = () => {
   const currentPath = useLocation();
   const prods: any = useRouteLoaderData("root");
   let isInverted = false;
+  if (prods.error) {
+    return <p>{prods.message}</p>;
+  }
+
   return prods
     .filter((prod: Product) => {
       return prod.category == currentPath.pathname.substring(1);

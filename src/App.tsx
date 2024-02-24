@@ -22,6 +22,10 @@ function App() {
           "https://audiophille-react-project-default-rtdb.firebaseio.com/.json"
         );
         if (!response.ok) {
+          throw new Response(
+            JSON.stringify({ message: "Could not fetch products." }),
+            { status: 500 }
+          );
         } else {
           const resData = await response.json();
           return resData;
@@ -44,6 +48,10 @@ function App() {
               `https://audiophille-react-project-default-rtdb.firebaseio.com/${params.prodId}/.json`
             );
             if (!response.ok) {
+              throw new Response(
+                JSON.stringify({ message: "Could not fetch product details." }),
+                { status: 500 }
+              );
             } else {
               const resData = await response.json();
               return resData;
