@@ -1,5 +1,4 @@
 import React from "react";
-import MainNavigation from "../components/MainNavigation";
 import ProductTitle from "../components/ProductTitle";
 import classes from "./Home.module.scss";
 import headPhones from "../assets/Figma/hero-section/hero-headphones.png";
@@ -9,8 +8,14 @@ import featuredSpeakers from "../assets/home/desktop/image-speaker-zx9.png";
 import EarphoneThirdAd from "../components/EarphoneThirdAd/EarphoneThirdAd";
 import PersonCardAd from "../components/PersonCardAd/PersonCardAd";
 import Footer from "../components/Footer/Footer";
-import { useLoaderData } from "react-router-dom";
+import {
+  useLoaderData,
+  useNavigate,
+  useRouteLoaderData,
+} from "react-router-dom";
 const HomePage = () => {
+  const products: any = useRouteLoaderData("root");
+  const navigate = useNavigate();
   return (
     <>
       <div className={classes.content}>
@@ -26,12 +31,17 @@ const HomePage = () => {
             />
           </div>
           <div className={classes.productDesc}>
-            <h1>ZX9 SPEAKER</h1>
+            <h1>{products[4].name}</h1>
             <p>
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
-            <Button onClick={null} style={"prodCatButton"}>
+            <Button
+              onClick={() => {
+                navigate(`./${products[4].category}/${products[4].id}`);
+              }}
+              style={"prodCatButton"}
+            >
               SEE PRODUCT
             </Button>
           </div>
@@ -39,14 +49,19 @@ const HomePage = () => {
         {/* Second ad Prod 2 */}
         <div className={classes.secondAd}>
           <div className={classes.productDesc}>
-            <h4>ZX7 SPEAKER</h4>
-            <Button onClick={null} style={"transparent"}>
+            <h4>{products[3].name}</h4>
+            <Button
+              onClick={() => {
+                navigate(`./${products[3].category}/${products[3].id}`);
+              }}
+              style={"transparent"}
+            >
               SEE PRODUCT
             </Button>
           </div>
         </div>
         {/* Third Ad Prod 3 */}
-        <EarphoneThirdAd />
+        <EarphoneThirdAd prod={products[0]} />
         <PersonCardAd />
       </div>
     </>

@@ -8,6 +8,7 @@ import {
   useLoaderData,
   useLocation,
   useNavigate,
+  useRouteLoaderData,
 } from "react-router-dom";
 import { log } from "console";
 import Button from "../UI/Button/Button";
@@ -20,6 +21,7 @@ import { useSelector } from "react-redux";
 
 const SecondaryNavigation = () => {
   const cartProducts = useSelector((state: any) => state.cart.products);
+  const products: any = useRouteLoaderData("root");
 
   const [transitionState, setTransitionState] = useState(false);
   const [toggleCart, setToggleCart] = useState(false);
@@ -157,11 +159,8 @@ const SecondaryNavigation = () => {
           {toggleCart && <Cart hideCart={showCartHandler} />}
           <div className={classes.productDesc}>
             <p className={classes.newProd}>NEW PRODUCT</p>
-            <h1>XX99 Mark II Headphones</h1>
-            <p>
-              Experience natural, lifelike audio and exceptional build quality
-              made for the passionate music enthusiast.
-            </p>
+            <h1>{products[2].name}</h1>
+            <p>{products[2].description}</p>
             <Button onClick={null} style="primary">
               SEE PRODUCT
             </Button>
