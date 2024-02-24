@@ -13,27 +13,25 @@ const CheckoutSummary = () => {
     setToggleConfirmation((prevState) => !prevState);
   };
   const totalPrice = Number(
-    cartProducts
-      .reduce(
-        (prod: any, currProd: any) =>
-          prod + currProd.prodQuantity * currProd.prodPrice,
-        0
-      )
-      .toFixed(3)
+    cartProducts.reduce(
+      (prod: any, currProd: any) =>
+        prod + currProd.prodQuantity * currProd.price,
+      0
+    )
   );
 
-  const vat = Number(((totalPrice * 20) / 100).toFixed(3));
+  const vat = Number((totalPrice * 20) / 100);
   const shipping = 50;
-  const totalEndPrice = (totalPrice + vat + shipping / 100).toFixed(3);
+  const totalEndPrice = totalPrice + vat + shipping / 100;
   return (
     <div className={classes.container}>
       <h6>SUMMARY</h6>
       {cartProducts.map((prod: any) => (
         <div className={classes.prodQuantityContainer}>
           <CartProd
-            prodImage={prod.prodImg}
-            prodPrice={prod.prodPrice}
-            prodTitle={prod.prodTitle}
+            prodImage={prod.categoryImage.desktop}
+            prodPrice={prod.price}
+            prodTitle={prod.name}
           />
 
           <div className={classes.prodQuantity}>x{prod.prodQuantity}</div>
@@ -73,11 +71,16 @@ const CheckoutSummary = () => {
           ></div>
           <OrderConfirmation
             totalPrice={totalEndPrice}
-            prodImage={cartProducts[0].prodImg}
-            prodPrice={cartProducts[0].prodPrice}
+            prodImage={cartProducts[0].categoryImage.desktop}
+            prodPrice={cartProducts[0].price}
             prodQuantity={cartProducts[0].prodQuantity}
-            prodTitle={cartProducts[0].prodTitle}
-            prodLength={cartProducts.length}
+            prodTitle={cartProducts[0].name}
+            prodLength={
+              cartProducts.reduce(
+                (prod: any, currProd: any) => prod + currProd.prodQuantity,
+                0
+              ) - cartProducts[0].prodQuantity
+            }
           />
         </>
       )}

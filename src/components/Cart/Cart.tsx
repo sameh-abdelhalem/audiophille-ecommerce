@@ -11,8 +11,8 @@ const Cart = (props: any) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const navigateToCheckoutHandler = () => {
-    navigate("/checkout");
+  const navigateToCheckoutHandler = (prod: any) => {
+    navigate("/checkout", { state: cartProducts });
     props.hideCart();
   };
   const removeAllHandler = () => {
@@ -44,7 +44,7 @@ const Cart = (props: any) => {
               <div className={classes.prodContainer}>
                 <CartProd
                   prodImage={prod.categoryImage.desktop}
-                  prodPrice={prod.price.toFixed(3)}
+                  prodPrice={prod.price}
                   prodTitle={prod.title}
                 />
 
@@ -81,14 +81,12 @@ const Cart = (props: any) => {
               <p className={classes.amount2}>TOTAL</p>
               <h6>
                 ${" "}
-                {cartProducts
-                  .reduce((prevProd: any, newProd: any) => {
-                    console.log(prevProd);
-                    console.log(newProd);
+                {cartProducts.reduce((prevProd: any, newProd: any) => {
+                  console.log(prevProd);
+                  console.log(newProd);
 
-                    return prevProd + newProd.price * newProd.prodQuantity;
-                  }, 0)
-                  .toFixed(3)}
+                  return prevProd + newProd.price * newProd.prodQuantity;
+                }, 0)}
               </h6>
             </div>
             {cartProducts.length > 0 ? (
