@@ -1,6 +1,8 @@
 import React from "react";
 import classes from "./Button.module.scss";
 const Button: React.FC<{
+  type?: any;
+  form?: any;
   style: string;
   onClick: any;
   disabled?: any;
@@ -19,6 +21,8 @@ const Button: React.FC<{
       }
       onClick={props.onClick || null}
       disabled={props.disabled || null}
+      type={props.type || null}
+      form={props.form || null}
     >
       {props.children}
     </button>

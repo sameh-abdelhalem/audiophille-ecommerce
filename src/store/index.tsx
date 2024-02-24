@@ -1,6 +1,6 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-const initialState: any = { products: [] };
+const initialState: any = { products: [], formIsValid: false };
 const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -70,6 +70,10 @@ const cartSlice = createSlice({
       state.products = state.products.filter((prod: any) => {
         return prod.id !== action.payload;
       });
+    },
+
+    validateForm(state, action) {
+      state.formIsValid = action.payload;
     },
   },
 });

@@ -5,12 +5,18 @@ import Button from "../UI/Button/Button";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import OrderConfirmation from "./OrderConfiramtion";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Product } from "../../interfaces/interfaces";
+import { cartActions } from "../../store";
 const CheckoutSummary = () => {
+  const dispatch = useDispatch();
   const cartProducts = useSelector((state: any) => state.cart.products);
+  const formIsValid = useSelector((state: any) => state.cart.formIsValid);
   const [toggleConfirmation, setToggleConfirmation] = useState(false);
   const showConfirmationHandler = () => {
-    setToggleConfirmation((prevState) => !prevState);
+    if (formIsValid) {
+      setToggleConfirmation((prevState) => !prevState);
+    }
   };
   const totalPrice = Number(
     cartProducts.reduce(
@@ -26,7 +32,7 @@ const CheckoutSummary = () => {
   return (
     <div className={classes.container}>
       <h6>SUMMARY</h6>
-      {cartProducts.map((prod: any) => (
+      {cartProducts.map((prod: Product) => (
         <div className={classes.prodQuantityContainer} key={prod.id}>
           <CartProd
             prodImage={prod.categoryImage.desktop}
@@ -58,7 +64,12 @@ const CheckoutSummary = () => {
       </div>
       <div className={classes.extendBtn}>
         {cartProducts.length > 0 && (
-          <Button style="primary" onClick={showConfirmationHandler}>
+          <Button
+            style="primary"
+            form={"checkout-form"}
+            type={"submit"}
+            onClick={showConfirmationHandler}
+          >
             CONTINUE & PAY
           </Button>
         )}

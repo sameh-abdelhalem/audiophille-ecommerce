@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import CartProd from "./CartProd";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store";
+import { Product } from "../../interfaces/interfaces";
 const Cart = (props: any) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const navigateToCheckoutHandler = (prod: any) => {
+  const navigateToCheckoutHandler = (prod: Product) => {
     navigate("/checkout", { state: cartProducts });
     props.hideCart();
   };
@@ -36,13 +37,13 @@ const Cart = (props: any) => {
               Remove all
             </p>
           </div>
-          {cartProducts.map((prod: any) => {
+          {cartProducts.map((prod: Product) => {
             return (
               <div className={classes.prodContainer} key={prod.id}>
                 <CartProd
                   prodImage={prod.categoryImage.desktop}
                   prodPrice={prod.price}
-                  prodTitle={prod.title}
+                  prodTitle={prod.name}
                 />
 
                 <div className={classes.addToCart}>
@@ -50,7 +51,7 @@ const Cart = (props: any) => {
                     <div
                       className={classes.amount}
                       onClick={() => {
-                        if (prod.prodQuantity > 1) {
+                        if (prod.prodQuantity && prod.prodQuantity > 1) {
                           dispatch(cartActions.decrementProd(prod.id));
                         } else {
                           dispatch(cartActions.removeProd(prod.id));
@@ -89,7 +90,7 @@ const Cart = (props: any) => {
               </Button>
             ) : (
               <Button
-                disabled="true"
+                disabled={true}
                 style="primary"
                 onClick={navigateToCheckoutHandler}
               >

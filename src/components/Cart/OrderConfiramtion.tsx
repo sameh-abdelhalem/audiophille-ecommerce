@@ -4,19 +4,23 @@ import CartProd from "./CartProd";
 import headphones from "../../assets/cart/image-xx99-mark-one-headphones.jpg";
 import Button from "../UI/Button/Button";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../store";
 
 const OrderConfirmation: React.FC<{
-  totalPrice: any;
-  prodPrice: any;
-  prodQuantity: any;
-  prodImage: any;
-  prodLength: any;
-  prodTitle: any;
+  totalPrice: number;
+  prodPrice: number;
+  prodQuantity: number;
+  prodImage: string;
+  prodLength: number;
+  prodTitle: string;
 }> = (props) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const homePageNavigationHandler = () => {
     navigate("/");
+    dispatch(cartActions.removeAll());
   };
   return (
     <div className={classes.confirmationContainer}>

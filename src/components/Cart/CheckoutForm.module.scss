@@ -1,6 +1,9 @@
 @import "../../sass/var";
 @import "../../sass/function";
-
+.error {
+  color: rgb(175, 5, 5) !important;
+  margin-top: 0 !important;
+}
 .formContainer {
   background-color: white;
   border-radius: 0.5rem;

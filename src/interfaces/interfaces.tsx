@@ -28,4 +28,5 @@ export interface Product {
   others: { id: number; image: CategoryImage; name: string; slug: string }[];
   price: number;
   slug: string;
+  prodQuantity?: number;
 }

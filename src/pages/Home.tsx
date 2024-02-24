@@ -13,8 +13,9 @@ import {
   useNavigate,
   useRouteLoaderData,
 } from "react-router-dom";
+import { Product } from "../interfaces/interfaces";
 const HomePage = () => {
-  const products: any = useRouteLoaderData("root");
+  const products: any = useRouteLoaderData("root") as Product[];
   const navigate = useNavigate();
   return (
     <>
