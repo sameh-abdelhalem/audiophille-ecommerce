@@ -9,100 +9,105 @@ import ProductDetailsPage from "./pages/ProductDetails";
 import CheckoutPage from "./pages/Checkout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ErrorPage from "./pages/Error";
-
+import { log } from "console";
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <RouterLayout />,
-      id: "root",
-      errorElement: <ErrorPage />,
-      loader: async () => {
-        const response = await fetch(
-          "https://audiophille-react-project-default-rtdb.firebaseio.com/.json"
-        );
-        if (!response.ok) {
-          throw new Response(
-            JSON.stringify({ message: "Could not fetch products." }),
-            { status: 500 }
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <RouterLayout />,
+        id: "root",
+        errorElement: <ErrorPage />,
+        loader: async () => {
+          const response = await fetch(
+            "https://audiophille-react-project-default-rtdb.firebaseio.com/.json"
           );
-        } else {
-          const resData = await response.json();
-          return resData;
-        }
-      },
-
-      children: [
-        { index: true, element: <HomePage /> },
-
-        {
-          path: "/headphones",
-          element: <CategoryPage />,
-        },
-        {
-          path: "headphones/:prodId",
-          id: "prod",
-          element: <ProductDetailsPage />,
-          loader: async ({ params }) => {
-            const response = await fetch(
-              `https://audiophille-react-project-default-rtdb.firebaseio.com/${params.prodId}/.json`
+          if (!response.ok) {
+            throw new Response(
+              JSON.stringify({ message: "Could not fetch products." }),
+              { status: 500 }
             );
-            if (!response.ok) {
-              throw new Response(
-                JSON.stringify({ message: "Could not fetch product details." }),
-                { status: 500 }
+          } else {
+            const resData = await response.json();
+            return resData;
+          }
+        },
+
+        children: [
+          { index: true, element: <HomePage /> },
+
+          {
+            path: "/headphones",
+            element: <CategoryPage />,
+          },
+          {
+            path: "headphones/:prodId",
+            id: "prod",
+            element: <ProductDetailsPage />,
+            loader: async ({ params }) => {
+              const response = await fetch(
+                `https://audiophille-react-project-default-rtdb.firebaseio.com/${params.prodId}/.json`
               );
-            } else {
-              const resData = await response.json();
-              return resData;
-            }
+              if (!response.ok) {
+                throw new Response(
+                  JSON.stringify({
+                    message: "Could not fetch product details.",
+                  }),
+                  { status: 500 }
+                );
+              } else {
+                const resData = await response.json();
+                return resData;
+              }
+            },
           },
-        },
-        {
-          path: "/speakers",
+          {
+            path: "/speakers",
 
-          element: <CategoryPage />,
-        },
-        {
-          path: "speakers/:prodId",
-          element: <ProductDetailsPage />,
-          loader: async ({ params }) => {
-            const response = await fetch(
-              `https://audiophille-react-project-default-rtdb.firebaseio.com/${params.prodId}/.json`
-            );
-            if (!response.ok) {
-            } else {
-              const resData = await response.json();
-              return resData;
-            }
+            element: <CategoryPage />,
           },
-        },
-        {
-          path: "/earphones",
-          element: <CategoryPage />,
-        },
-        {
-          path: "earphones/:prodId",
+          {
+            path: "speakers/:prodId",
+            element: <ProductDetailsPage />,
+            loader: async ({ params }) => {
+              const response = await fetch(
+                `https://audiophille-react-project-default-rtdb.firebaseio.com/${params.prodId}/.json`
+              );
+              if (!response.ok) {
+              } else {
+                const resData = await response.json();
+                return resData;
+              }
+            },
+          },
+          {
+            path: "/earphones",
+            element: <CategoryPage />,
+          },
+          {
+            path: "earphones/:prodId",
 
-          element: <ProductDetailsPage />,
-          loader: async ({ params }) => {
-            const response = await fetch(
-              `https://audiophille-react-project-default-rtdb.firebaseio.com/${params.prodId}/.json`
-            );
-            if (!response.ok) {
-            } else {
-              const resData = await response.json();
-              return resData;
-            }
+            element: <ProductDetailsPage />,
+            loader: async ({ params }) => {
+              const response = await fetch(
+                `https://audiophille-react-project-default-rtdb.firebaseio.com/${params.prodId}/.json`
+              );
+              if (!response.ok) {
+              } else {
+                const resData = await response.json();
+                return resData;
+              }
+            },
           },
-        },
-        {
-          path: "checkout",
-          element: <CheckoutPage />,
-        },
-      ],
-    },
-  ]);
+          {
+            path: "checkout",
+            element: <CheckoutPage />,
+          },
+        ],
+      },
+    ],
+    { basename: "/audiophille-ecommerce" }
+  );
   return <RouterProvider router={router} />;
 }
 
